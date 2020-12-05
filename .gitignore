@@ -1,3 +1,8 @@
+# contains atlas connection string. I have a local copy here and one on render.
+.env.development
+.env.production
+.env
+
 # Logs
 logs
 *.log
