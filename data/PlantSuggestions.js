@@ -1,0 +1,16 @@
+export default [
+    "sansevieria",
+    "sansevieria trifasciata",
+    "snake plant",
+    "mother-in-law's tongue",
+    "jinn's tongue",
+    "bow string hemp",
+    "snake tongue",
+    "parlor palm",
+    "chamaedorea elegans",
+    "neanthe bella palm",
+    "tabletop palm",
+    "bella palm",
+    "philodendron brasil",
+    "philodendron hederaceum",
+]

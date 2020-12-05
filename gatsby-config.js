@@ -6,5 +6,19 @@
 
 module.exports = {
   /* Your site config here */
-  plugins: [],
+  plugins: [`gatsby-plugin-styled-components`,
+{
+  resolve: 'gatsby-source-mongodb',
+  options: {
+    dbName: 'alto_db',
+    collection: ['plants', 'libraryplants'],
+    connectionString: 'mongodb+srv://maddy:HvWH8SBF5nBymQLm@cluster0.dcxjt.mongodb.net',
+    extraParams: {
+      ssl: true,
+      authSource: 'admin',
+      retryWrites: true
+    }
+  }
+}],
+  
 }

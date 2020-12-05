@@ -14,9 +14,18 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "dependencies": {
+    "@material-ui/core": "^4.11.1",
+    "fontsource-montserrat": "^3.0.9",
+    "fontsource-shrikhand": "^3.0.9",
     "gatsby": "^2.26.1",
+    "gatsby-plugin-create-client-paths": "^2.5.0",
+    "gatsby-plugin-styled-components": "^3.5.0",
+    "gatsby-source-mongodb": "^2.5.0",
+    "grommet": "^2.16.0",
     "react": "^16.12.0",
-    "react-dom": "^16.12.0"
+    "react-autosuggest": "^10.0.3",
+    "react-dom": "^16.12.0",
+    "styled-components": "^5.2.1"
   },
   "devDependencies": {
     "prettier": "2.1.2"
