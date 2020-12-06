@@ -18,6 +18,15 @@ const Plants = styled.div`
   @media (min-width: 550px) {
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
+  @media (min-width: 900px) {
+    grid-template-columns: repeat(5, 1fr);
+  }
+  @media (min-width: 1300px) {
+    grid-template-columns: repeat(6, 1fr);
+  }
+  @media (min-width: 1600px) {
+    grid-template-columns: repeat(8, 1fr);
+  }
 `;
 
 const Sidebar = styled.div`
@@ -45,7 +54,7 @@ const FilterTitle = styled.p`
 
 const FilterInfo = styled.p`
   font-size: 12px;
-  
+
   @media (min-width: 960px) {
     text-align: center;
     margin: 0px auto 20px auto;
@@ -89,7 +98,7 @@ const CloseFilterMenu = styled(MobileFilterMenu)`
 
 const MobileFilterDiv = styled.div`
   width: 90%;
-`
+`;
 
 export default function Index({ data }, props) {
   // Classification
@@ -139,15 +148,17 @@ export default function Index({ data }, props) {
     BASICALLY >> if any of the sub ifs are true then it will render.
     */
     if (!(lowLight && mediumLight && brightLight && directLight)) {
-      if (
-        !lowLight &&
-        l[0] &&
-        !mediumLight &&
-        l[1] &&
-        !brightLight &&
-        l[2] &&
-        !directLight &&
-        l[3]
+      // if(
+      //   ((lowLight && !l[0]) || (!lowLight && l[0])) &&
+      //   ((mediumLight && !l[1]) || (!mediumLight && l[1])) &&
+      //   ((brightLight && !l[2]) || (!brightLight && l[2])) &&
+      //   ((directLight && !l[3]) || (!directLight && l[3]))
+      // )
+      if(
+        !((lowLight && l[0]) ||
+        (mediumLight && l[1]) ||
+        (brightLight && l[2]) ||
+        (directLight && l[3]))
       )
         return false;
     }
@@ -284,9 +295,7 @@ export default function Index({ data }, props) {
       <CloseFilterMenu onClick={() => setOpen(false)}>
         Close Filters
       </CloseFilterMenu>
-      <MobileFilterDiv>
-      {filterMenu}
-      </MobileFilterDiv>
+      <MobileFilterDiv>{filterMenu}</MobileFilterDiv>
     </DrawerDiv>
   );
 
