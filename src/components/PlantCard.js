@@ -21,6 +21,7 @@ const PicWrapper = styled.div`
 const Title = styled.p`
     font-family: shrikhand;
     font-size: 20px;
+    // font-size: 100%;
     text-align: center;
     color: var(--color-text);
 `

@@ -1,15 +1,23 @@
 import React, { useState } from 'react';
 import { navigate, graphql } from 'gatsby';
 import styled from 'styled-components';
-import { RadioButton, CheckBox, Menu, Collapsible } from 'grommet';
+import Drawer from '@material-ui/core/Drawer';
 import Layout from '../../components/Layout';
 import PlantCard from '../../components/PlantCard';
+import Checkbox from '../../components/Checkbox';
 
 const Plants = styled.div`
   display: grid;
-  margin: 10px 3% 10px 3%;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 0.1fr));
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 10px;
   grid-gap: 10px;
+  @media (max-width: 400px) {
+    grid-template-columns: 1fr 1fr;
+  }
+  @media (min-width: 550px) {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
 `;
 
 const Sidebar = styled.div`
@@ -20,48 +28,67 @@ const Sidebar = styled.div`
   height: 92vh;
   border-style: solid;
   @media (max-width: 960px) {
-      display: none;
+    display: none;
   }
 `;
 
 const FilterTitle = styled.p`
   font-size: 20px;
   font-weight: 700;
-  margin: 20px auto 0px auto;
+  @media (min-width: 960px) {
+    margin: 20px auto 0px auto;
+  }
+  @media (max-width: 960px) {
+    margin: 20px 20px 0px;
+  }
 `;
 
 const FilterInfo = styled.p`
   font-size: 12px;
-  margin: 0px auto 20px auto;
-  text-align: center;
+  
+  @media (min-width: 960px) {
+    text-align: center;
+    margin: 0px auto 20px auto;
+  }
+  @media (max-width: 960px) {
+    margin-left: 20px;
+  }
 `;
 
 const CheckGroup = styled.div`
   margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+`;
+
+const DrawerDiv = styled.div`
+  background: var(--color-background);
+  color: var(--color-text);
+  height: 100%;
+`;
+
+const MobileFilterMenu = styled.button`
+  display: none;
+  @media (max-width: 960px) {
+    display: block;
+    font-size: 20px;
+    background: none;
+    border-color: var(--color-text);
+    color: var(--color-text);
+    border-style: solid;
+    border-radius: 3px;
+    width: 100%;
+    margin: 0;
+  }
+`;
+
+const CloseFilterMenu = styled(MobileFilterMenu)`
+  margin: 3% 10px;
+  width: 95%;
 `;
 
 const MobileFilterDiv = styled.div`
-  display: none;
-  @media (max-width: 960px) {
-      width: auto;
-      height: auto;
-      position: sticky;
-      background: var(--color-background);
-  }
-`
-
-const MobileFilterMenu = styled.button`
-    display: none;
-    @media (max-width: 960px) {
-        display: block;
-        font-size: 20px;
-        background: none;
-        color: var(--color-text);
-        border-style: solid;
-        border-radius: 3px;
-        width: 100%;
-        margin: 0;
-    }
+  width: 90%;
 `
 
 export default function Index({ data }, props) {
@@ -83,7 +110,7 @@ export default function Index({ data }, props) {
   const [hard, setHard] = useState(true);
   const [extreme, setExtreme] = useState(true);
   // Mobile Filter
-  const [collapsed, setCollapsed] = useState(false);
+  const [open, setOpen] = useState(false);
 
   const plants = data.allMongodbAltoDbPlants.edges;
 
@@ -113,10 +140,14 @@ export default function Index({ data }, props) {
     */
     if (!(lowLight && mediumLight && brightLight && directLight)) {
       if (
-        (!lowLight && l[0]) ||
-        (!mediumLight && l[1]) ||
-        (!brightLight && l[2]) ||
-        (!directLight && l[3])
+        !lowLight &&
+        l[0] &&
+        !mediumLight &&
+        l[1] &&
+        !brightLight &&
+        l[2] &&
+        !directLight &&
+        l[3]
       )
         return false;
     }
@@ -150,7 +181,6 @@ export default function Index({ data }, props) {
         plant.node.difficulty
       )
     ) {
-      console.log(`rendering ${plant.node.name}!`);
       return (
         <div
           onClick={() => navigate(`${plant.node.mongodb_id}`)}
@@ -162,102 +192,115 @@ export default function Index({ data }, props) {
     } else return null;
   });
 
+  const toggleDrawer = open => event => {
+    if (
+      event.type === 'keydown' &&
+      (event.key === 'Tab' || event.key === 'Shift')
+    ) {
+      return;
+    }
+
+    setOpen(open);
+  };
+
+  // I abstracted the filters further so I could edit them in the mobile drawer without breaking the desktop
+  const filterMenu = (
+    <>
+      {/* Class filter */}
+      <FilterTitle>Classification</FilterTitle>
+      <CheckGroup>
+        <Checkbox name={'Palm'} condition={palm} changeState={setPalm} />
+        <Checkbox
+          name={'Succulent'}
+          condition={succulent}
+          changeState={setSucculent}
+        />
+        <Checkbox name={'Cactus'} condition={cactus} changeState={setCactus} />
+      </CheckGroup>
+      {/* Light Filter */}
+      <FilterTitle>Light</FilterTitle>
+      <FilterInfo>
+        The group the plant is in may not be the optimal lighting condition
+        <br />
+        Click on the plant to get more accurate lighting details
+      </FilterInfo>
+      <CheckGroup>
+        <Checkbox
+          name={'Low Light'}
+          condition={lowLight}
+          changeState={setLowLight}
+        />
+        <Checkbox
+          name={'Medium Light'}
+          condition={mediumLight}
+          changeState={setMediumLight}
+        />
+        <Checkbox
+          name={'Bright Indirect Light'}
+          condition={brightLight}
+          changeState={setBrightLight}
+        />
+        <Checkbox
+          name={'Direct Light'}
+          condition={directLight}
+          changeState={setDirectLight}
+        />
+      </CheckGroup>
+      {/* Toxicity Filter */}
+      <FilterTitle>Toxicity</FilterTitle>
+      <FilterInfo>
+        Click on plant to check for details on toxicity. Many plants are very
+        mild.
+      </FilterInfo>
+      <CheckGroup>
+        <Checkbox name={'Toxic'} condition={toxic} changeState={setToxic} />
+      </CheckGroup>
+      {/* Difficulty Filter */}
+      <FilterTitle>Difficulty</FilterTitle>
+      <CheckGroup>
+        <Checkbox
+          name={'Effortless'}
+          condition={effortless}
+          changeState={setEffortless}
+        />
+        <Checkbox name={'Easy'} condition={easy} changeState={setEasy} />
+        <Checkbox
+          name={'Moderate'}
+          condition={moderate}
+          changeState={setModerate}
+        />
+        <Checkbox name={'Hard'} condition={hard} changeState={setHard} />
+        <Checkbox
+          name={'Extreme'}
+          condition={extreme}
+          changeState={setExtreme}
+        />
+      </CheckGroup>
+    </>
+  );
+
+  const drawerContent = (
+    <DrawerDiv role="presentation" onKeyDown={toggleDrawer(false)}>
+      <CloseFilterMenu onClick={() => setOpen(false)}>
+        Close Filters
+      </CloseFilterMenu>
+      <MobileFilterDiv>
+      {filterMenu}
+      </MobileFilterDiv>
+    </DrawerDiv>
+  );
+
   return (
     <Layout>
-        <MobileFilterMenu
-            onClick={() => setCollapsed(!collapsed)}
-          >Filter</MobileFilterMenu>
+      <MobileFilterMenu onClick={() => setOpen(!open)}>Filter</MobileFilterMenu>
+      <>
+        <Drawer open={open} onClose={toggleDrawer(false)}>
+          {drawerContent}
+        </Drawer>
+      </>
       <div style={{ display: 'flex' }}>
-          
-        <Sidebar>
-          <FilterTitle>Classification</FilterTitle>
-          <CheckGroup>
-            <CheckBox
-              checked={palm}
-              label="Palm"
-              onChange={() => setPalm(!palm)}
-            />
-            <CheckBox
-              checked={succulent}
-              label="Succulent"
-              onChange={() => setSucculent(!succulent)}
-            />
-            <CheckBox
-              checked={cactus}
-              label="Cactus"
-              onChange={() => setCactus(!cactus)}
-            />
-          </CheckGroup>
-          <FilterTitle>Light</FilterTitle>
-          <FilterInfo>
-            The group the plant is in may not be the optimal lighting condition
-            <br />
-            Click on the plant to get more accurate lighting details
-          </FilterInfo>
-          <CheckGroup>
-            <CheckBox
-              checked={lowLight}
-              label="Low Light"
-              onChange={() => setLowLight(!lowLight)}
-            />
-            <CheckBox
-              checked={mediumLight}
-              label="Medium Light"
-              onChange={() => setMediumLight(!mediumLight)}
-            />
-            <CheckBox
-              checked={brightLight}
-              label="Bright Indirect Light"
-              onChange={() => setBrightLight(!brightLight)}
-            />
-            <CheckBox
-              checked={directLight}
-              label="Direct Light (Full Sun)"
-              onChange={() => setDirectLight(!directLight)}
-            />
-          </CheckGroup>
-          <FilterTitle>Toxicity</FilterTitle>
-          <FilterInfo>
-            Click on plant to check for details on toxicity. Many plants are
-            very mild.
-          </FilterInfo>
-          <CheckGroup>
-            <CheckBox
-              checked={toxic}
-              label="Toxic"
-              onChange={() => setToxic(!toxic)}
-            />
-          </CheckGroup>
-          <FilterTitle>Difficulty</FilterTitle>
-          <CheckGroup>
-            <CheckBox
-              checked={effortless}
-              label="Effortless"
-              onChange={() => setEffortless(!effortless)}
-            />
-            <CheckBox
-              checked={easy}
-              label="Easy"
-              onChange={() => setEasy(!easy)}
-            />
-            <CheckBox
-              checked={moderate}
-              label="Moderate"
-              onChange={() => setModerate(!moderate)}
-            />
-            <CheckBox
-              checked={hard}
-              label="Hard"
-              onChange={() => setHard(!hard)}
-            />
-            <CheckBox
-              checked={extreme}
-              label="Extreme"
-              onChange={() => setExtreme(!extreme)}
-            />
-          </CheckGroup>
-        </Sidebar>
-        <div style={{ flexGrow: 1 }}>
+        <Sidebar>{filterMenu}</Sidebar>
+        <div style={{ flexGrow: 1, margin: 5 }}>
           <Plants>{plantCardMap}</Plants>
         </div>
       </div>
