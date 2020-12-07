@@ -1,6 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import styled from 'styled-components';
+import { Helmet } from 'react-helmet';
 import Layout from './Layout';
 import Bio from './Bio';
 import Section from './Section';
@@ -85,6 +86,13 @@ export default function Plant({ data }) {
   const plant = data.mongodbAltoDbPlants;
   return (
     <Layout>
+      <Helmet>
+          <meta charSet="utf-8" />
+          <meta name="keywords" content={`${plant.name}, Plant, Grow, Guide, Tutorial, How To, Learn, Care, Problems`}/>
+          <meta name="description" content={`Learn how to care for your ${plant.name} quickly, easily, and for free`}/>
+          <meta name="viewport" content="width=device.width, initial-scale=1.0"/>
+          <title>{plant.name} Guide</title>
+        </Helmet>
       <TitleSection>
         <Title>{plant.name}</Title>
         <BotanicalName>{plant.botanicalName}</BotanicalName>

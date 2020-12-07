@@ -148,17 +148,13 @@ export default function Index({ data }, props) {
     BASICALLY >> if any of the sub ifs are true then it will render.
     */
     if (!(lowLight && mediumLight && brightLight && directLight)) {
-      // if(
-      //   ((lowLight && !l[0]) || (!lowLight && l[0])) &&
-      //   ((mediumLight && !l[1]) || (!mediumLight && l[1])) &&
-      //   ((brightLight && !l[2]) || (!brightLight && l[2])) &&
-      //   ((directLight && !l[3]) || (!directLight && l[3]))
-      // )
-      if(
-        !((lowLight && l[0]) ||
-        (mediumLight && l[1]) ||
-        (brightLight && l[2]) ||
-        (directLight && l[3]))
+      if (
+        !(
+          (lowLight && l[0]) ||
+          (mediumLight && l[1]) ||
+          (brightLight && l[2]) ||
+          (directLight && l[3])
+        )
       )
         return false;
     }
@@ -231,9 +227,9 @@ export default function Index({ data }, props) {
       {/* Light Filter */}
       <FilterTitle>Light</FilterTitle>
       <FilterInfo>
-        The group the plant is in may not be the optimal lighting condition
+        The group the plant is in may not be the optimal lighting condition.
         <br />
-        Click on the plant to get more accurate lighting details
+        Click on the plant to get more accurate lighting details.
       </FilterInfo>
       <CheckGroup>
         <Checkbox
@@ -301,6 +297,16 @@ export default function Index({ data }, props) {
 
   return (
     <Layout>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <meta name="keywords" content={`Filter, Alto, Plants, Library`} />
+        <meta
+          name="description"
+          content={`The entire filterable library of plants on alto.earth`}
+        />
+        <meta name="viewport" content="width=device.width, initial-scale=1.0" />
+        <title>All Plants - Alto</title>
+      </Helmet>
       <MobileFilterMenu onClick={() => setOpen(!open)}>Filter</MobileFilterMenu>
       <>
         <Drawer open={open} onClose={toggleDrawer(false)}>

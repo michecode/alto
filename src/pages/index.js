@@ -14,7 +14,7 @@ const HomePage = styled.div`
 
   /* MOBILE */
   @media (max-width: 500px) {
-    margin-top: 20vh;
+    margin-top: 15vh;
   }
   // @media (max-width: 960px) {
   //   padding-top: 275px;
@@ -27,8 +27,8 @@ const SplashText = styled.text`
   color: var(--color-text);
   text-align: center;
   margin-bottom: 50px;
-  @media (man-width: 960px) {
-    font-size: 30px;
+  @media (max-width: 960px) {
+    font-size: 45px;
   }
 `;
 
@@ -46,14 +46,32 @@ export default function Home() {
   return (
     <>
       <Layout>
+        <Helmet>
+          <meta charSet="utf-8" />
+          <meta
+            name="keywords"
+            content={`Alto, Plants, Houseplant, Plant, Plants, Care, Problems, Guide, Tutorial, How To`}
+          />
+          <meta
+            name="description"
+            content={`Alto is a easy to use knowledge base of plants. Learn to grow any houseplant at Alto.`}
+          />
+          <meta
+            name="viewport"
+            content="width=device.width, initial-scale=1.0"
+          />
+          <title>Alto</title>
+        </Helmet>
         <HomePage>
           <SplashText>Grow Guide for Every Green</SplashText>
           <Searchbar />
           <LinkWrapper to="/request">
             <UnderText>Don't see the plant you're looking for?</UnderText>
           </LinkWrapper>
-          <hr/>
-          <UnderText style={{textAlign: 'center'}}>Website is currently under active development :)</UnderText>
+          <hr />
+          <UnderText style={{ textAlign: 'center' }}>
+            Website is currently under active development :)
+          </UnderText>
         </HomePage>
       </Layout>
     </>

@@ -4,7 +4,7 @@ require("dotenv").config({
 
 module.exports = {
   /* Your site config here */
-  plugins: [`gatsby-plugin-styled-components`,
+  plugins: [`gatsby-plugin-styled-components`, 'gatsby-plugin-react-helmet',
 {
   resolve: 'gatsby-source-mongodb',
   options: {
