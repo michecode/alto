@@ -1,22 +1,26 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Helmet } from 'react-helmet';
 import Layout from '../../components/Layout';
 import 'fontsource-montserrat/400-normal.css';
 import 'fontsource-shrikhand/400-normal.css';
 
 const About = styled.div`
-  padding-top: 200px;
-  @media (max-width: 960px) {
-    padding-top: 15vh;
-  }
+  // padding-top: 200px;
+  // @media (max-width: 960px) {
+  //   padding-top: 15vh;
+  // }
 `;
 
 const TextContainer = styled.div`
   @media (max-width: 960px) {
     text-align: center;
+    margin: 15vh auto 0 auto;
   }
   @media (min-width: 960px) {
-    margin-left: 15%;
+    margin: 200px auto 0 auto;
+    width: 45%;
+
   }
 `;
 
@@ -32,9 +36,9 @@ const Header = styled.h1`
 
 const Description = styled.p`
   font-size: 20px;
-  @media (min-width: 960px) {
-    margin-right: 200px;
-  }
+  // @media (min-width: 960px) {
+  //   margin-right: 200px;
+  // }
 `;
 
 export default function Index() {

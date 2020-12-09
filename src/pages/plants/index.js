@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { navigate, graphql } from 'gatsby';
 import styled from 'styled-components';
+import { Helmet } from 'react-helmet';
 import Drawer from '@material-ui/core/Drawer';
 import Layout from '../../components/Layout';
 import PlantCard from '../../components/PlantCard';

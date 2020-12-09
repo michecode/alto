@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
+import { Helmet } from 'react-helmet';
 import Searchbar from '../components/SearchBar';
 import Layout from '../components/Layout';
 import 'fontsource-shrikhand';
