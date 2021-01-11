@@ -34,7 +34,7 @@ const SplashText = styled.text`
 `;
 
 const LinkWrapper = styled(Link)`
-  text-decoration: none;
+  // text-decoration: none;
   text-align: center;
   margin-top: 25px;
 `;

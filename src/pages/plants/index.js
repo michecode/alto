@@ -300,7 +300,7 @@ export default function Index({ data }, props) {
     <Layout>
       <Helmet>
         <meta charSet="utf-8" />
-        <meta name="keywords" content={`Filter, Alto, Plants, Library`} />
+        <meta name="keywords" content={`Filter, Alto, Plants, Library, All`} />
         <meta
           name="description"
           content={`The entire filterable library of plants on alto.earth`}
