@@ -68,6 +68,8 @@ export default function Home() {
           <Searchbar />
           <LinkWrapper to="/request">
             <UnderText>Don't see the plant you're looking for?</UnderText>
+            <br/>
+            <UnderText>Send me an email and I'll add it asap</UnderText>
           </LinkWrapper>
           <hr />
           <UnderText style={{ textAlign: 'center' }}>

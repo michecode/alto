@@ -67,21 +67,20 @@ export default function Index(props) {
         <meta charSet="utf-8" />
         <meta
           name="keywords"
-          content={`Watering, Water, Top Watering, Bottom Watering, Underwatering, Overwatering, Root Rot, Drain, Plant, Grow, Guide, Tutorial, How To, Learn, Care, Problems`}
+          content={`Pruning, 20% Rule, Trimming, Branching, Plant, Grow, Guide, Tutorial, How To, Learn, Care, Problems`}
         />
-        <meta name="description" content={`Learn to water your house plants`} />
+        <meta name="description" content={`Learn to prune your house plants`} />
         <meta name="viewport" content="width=device.width, initial-scale=1.0" />
-        <title>Watering - Alto</title>
+        <title>Pruning - Alto</title>
       </Helmet>
-      <TableOfContent category={1} />
+      <TableOfContent category={5} />
       <TextContainer>
-        <Header>Watering</Header>
-        <Text>yello</Text>
+        <Header>Pruning</Header>
+        <Text>fjals;kdf</Text>
         <Line />
-        <SectionHeader id="bottom-watering">Bottom Watering</SectionHeader>
+        <SectionHeader id="20%-rule">20% Rule</SectionHeader>
         <Text>bonjour</Text>
-        <Line />
-        <PreviousNext previous={true} next={true} l1={'Light'} l2={'Humidity'}/>
+        <PreviousNext previous={true} next={true} l1={'Repotting'} l2={'Fertilizing'}/>
       </TextContainer>
     </Layout>
   );

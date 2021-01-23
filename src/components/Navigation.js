@@ -38,9 +38,9 @@ const NavLink = styled.li`
   font-size: 36px;
   margin-left: 30px;
   @media (max-width: 960px) {
-      display: none;
+    display: none;
   }
-`
+`;
 
 const NavButton = styled.button`
   background-color: var(--color-background);
@@ -52,22 +52,47 @@ const NavButton = styled.button`
 
 const MobileNavButton = styled(NavButton)`
   @media (min-width: 960px) {
-      display: none;
+    display: none;
   }
 `;
 
 const MobileLink = styled.h1`
-    font-family: shrikhand;
-    font-size: 36px;
-    align-items: center;
-    margin-left: 24px;
-    margin-top: 0px;
-    margin-bottom: 0px;
-    @media (min-width: 960px) {
-        display: none;
-    }
+  font-family: shrikhand;
+  font-size: 36px;
+  align-items: center;
+  margin-left: 24px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  @media (min-width: 960px) {
+    display: none;
+  }
 `;
 
+// dropdown content on learn
+const DropLink = styled(LinkWrapper)`
+  font-size: 30px;
+  margin-left: 15px;
+  margin-right: 25px;
+  :hover {
+    opacity: 0.6;
+  }
+`;
+
+const DropList = styled.ul`
+  display: none;
+  position: absolute;
+  z-index: 1;
+  flex-direction: column;
+  background-color: var(--color-paper);
+  border-radius: 5px;
+  // height: calc(auto + 5px);
+  padding-left: 0px;
+  ${LinkWrapper}:hover & {
+    display: flex;
+    // display: block;
+    transition: height 0.5s;
+  }
+`;
 
 export function Navigation(props) {
   const { colorMode, setColorMode } = React.useContext(ThemeContext);
@@ -78,65 +103,93 @@ export function Navigation(props) {
   }
 
   return (
-      <>
-    <Nav>
-      <LinkWrapper to="/" onClick={() => setExpanded(false)}>
-        <BrandText>alto</BrandText>
-      </LinkWrapper>
-      <List>
-        <LinkWrapper to="/plants">
-          <NavLink>plants</NavLink>
+    <>
+      <Nav>
+        <LinkWrapper to="/" onClick={() => setExpanded(false)}>
+          <BrandText>alto</BrandText>
         </LinkWrapper>
-        <LinkWrapper to="/learn">
-          <NavLink>learn</NavLink>
-        </LinkWrapper>
-        <LinkWrapper to="/about">
-          <NavLink>about</NavLink>
-        </LinkWrapper>
-        <NavButton
-          onClick={() => setColorMode(colorMode === 'light' ? 'dark' : 'light')}
-        >
-          {colorMode === 'dark' ? <SunIcon /> : <MoonIcon />}
-        </NavButton>
-        <MobileNavButton
-            onClick={() => setExpanded(!expanded)}
-        >
-            {expanded ? <CloseIcon/> : <MenuIcon/>}
-        </MobileNavButton>
-      </List>
-      
-    </Nav>
-    <div style={{display: 'flex'}}>
-          <Collapse in={expanded} unmountOnExit>
-            <LinkWrapper to='/plants' onClick={() => setExpanded(!expanded)}>
-                <MobileLink>plants</MobileLink>
-            </LinkWrapper>
-            <LinkWrapper to='/learn' onClick={() => setExpanded(!expanded)}>
-                <MobileLink>learn</MobileLink>
-            </LinkWrapper>
-            <LinkWrapper to='/about' onClick={() => setExpanded(!expanded)}>
-                <MobileLink>about</MobileLink>
-            </LinkWrapper>
-          </Collapse>
+        <List>
+          <LinkWrapper to="/plants">
+            <NavLink>plants</NavLink>
+          </LinkWrapper>
+          <LinkWrapper to="/learn">
+            <NavLink>
+              learn
+              <CaretDown />
+            </NavLink>
+            <DropList>
+              <DropLink to="/learn/light">Light</DropLink>
+              <DropLink to="/learn/watering">Watering</DropLink>
+              <DropLink to="/learn/humidity">Humidity</DropLink>
+              <DropLink to="/learn/propagation">Propagation</DropLink>
+              <DropLink to="/learn/repotting">Repotting</DropLink>
+              <DropLink to="/learn/pruning">Pruning</DropLink>
+              <DropLink to="/learn/fertilizing">Fertilizing</DropLink>
+              <DropLink to="/learn/pests">Pests</DropLink>
+            </DropList>
+          </LinkWrapper>
+          <LinkWrapper to="/about">
+            <NavLink>about</NavLink>
+          </LinkWrapper>
+          <NavButton
+            onClick={() =>
+              setColorMode(colorMode === 'light' ? 'dark' : 'light')
+            }
+          >
+            {colorMode === 'dark' ? <SunIcon /> : <MoonIcon />}
+          </NavButton>
+          <MobileNavButton onClick={() => setExpanded(!expanded)}>
+            {expanded ? <CloseIcon /> : <MenuIcon />}
+          </MobileNavButton>
+        </List>
+      </Nav>
+      <div style={{ display: 'flex' }}>
+        <Collapse in={expanded} unmountOnExit>
+          <LinkWrapper to="/plants" onClick={() => setExpanded(!expanded)}>
+            <MobileLink>plants</MobileLink>
+          </LinkWrapper>
+          <LinkWrapper to="/learn" onClick={() => setExpanded(!expanded)}>
+            <MobileLink>learn</MobileLink>
+          </LinkWrapper>
+          <LinkWrapper to="/about" onClick={() => setExpanded(!expanded)}>
+            <MobileLink>about</MobileLink>
+          </LinkWrapper>
+        </Collapse>
       </div>
     </>
   );
 }
 
 function MenuIcon() {
-    return(
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="36" width="36">
-            <path xmlns="http://www.w3.org/2000/svg" d="M4 7C4 6.44772 4.44772 6 5 6H19C19.5523 6 20 6.44772 20 7C20 7.55228 19.5523 8 19 8H5C4.44772 8 4 7.55228 4 7ZM4 12C4 11.4477 4.44772 11 5 11H19C19.5523 11 20 11.4477 20 12C20 12.5523 19.5523 13 19 13H5C4.44772 13 4 12.5523 4 12ZM4 17C4 16.4477 4.44772 16 5 16H19C19.5523 16 20 16.4477 20 17C20 17.5523 19.5523 18 19 18H5C4.44772 18 4 17.5523 4 17Z"></path>
-        </svg>
-    )
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      height="36"
+      width="36"
+    >
+      <path
+        xmlns="http://www.w3.org/2000/svg"
+        d="M4 7C4 6.44772 4.44772 6 5 6H19C19.5523 6 20 6.44772 20 7C20 7.55228 19.5523 8 19 8H5C4.44772 8 4 7.55228 4 7ZM4 12C4 11.4477 4.44772 11 5 11H19C19.5523 11 20 11.4477 20 12C20 12.5523 19.5523 13 19 13H5C4.44772 13 4 12.5523 4 12ZM4 17C4 16.4477 4.44772 16 5 16H19C19.5523 16 20 16.4477 20 17C20 17.5523 19.5523 18 19 18H5C4.44772 18 4 17.5523 4 17Z"
+      ></path>
+    </svg>
+  );
 }
 
 function CloseIcon() {
-    return(
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="36" width="36">
-            <path xmlns="http://www.w3.org/2000/svg" d="M5.29289 5.29289C5.68342 4.90237 6.31658 4.90237 6.70711 5.29289L12 10.5858L17.2929 5.29289C17.6834 4.90237 18.3166 4.90237 18.7071 5.29289C19.0976 5.68342 19.0976 6.31658 18.7071 6.70711L13.4142 12L18.7071 17.2929C19.0976 17.6834 19.0976 18.3166 18.7071 18.7071C18.3166 19.0976 17.6834 19.0976 17.2929 18.7071L12 13.4142L6.70711 18.7071C6.31658 19.0976 5.68342 19.0976 5.29289 18.7071C4.90237 18.3166 4.90237 17.6834 5.29289 17.2929L10.5858 12L5.29289 6.70711C4.90237 6.31658 4.90237 5.68342 5.29289 5.29289Z"></path>
-        </svg>
-    )
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      height="36"
+      width="36"
+    >
+      <path
+        xmlns="http://www.w3.org/2000/svg"
+        d="M5.29289 5.29289C5.68342 4.90237 6.31658 4.90237 6.70711 5.29289L12 10.5858L17.2929 5.29289C17.6834 4.90237 18.3166 4.90237 18.7071 5.29289C19.0976 5.68342 19.0976 6.31658 18.7071 6.70711L13.4142 12L18.7071 17.2929C19.0976 17.6834 19.0976 18.3166 18.7071 18.7071C18.3166 19.0976 17.6834 19.0976 17.2929 18.7071L12 13.4142L6.70711 18.7071C6.31658 19.0976 5.68342 19.0976 5.29289 18.7071C4.90237 18.3166 4.90237 17.6834 5.29289 17.2929L10.5858 12L5.29289 6.70711C4.90237 6.31658 4.90237 5.68342 5.29289 5.29289Z"
+      ></path>
+    </svg>
+  );
 }
 
 function SunIcon() {
@@ -167,6 +220,21 @@ function MoonIcon() {
         xmlns="http://www.w3.org/2000/svg"
         d="M9.36077 3.29291C9.6659 3.59803 9.74089 4.06445 9.54678 4.44984C9.04068 5.4547 8.75521 6.59035 8.75521 7.79557C8.75521 11.9097 12.0903 15.2448 16.2044 15.2448C17.4097 15.2448 18.5453 14.9593 19.5502 14.4532C19.9356 14.2591 20.402 14.3341 20.7071 14.6392C21.0122 14.9444 21.0872 15.4108 20.8931 15.7962C19.3396 18.8806 16.1428 21 12.4492 21C7.23056 21 3 16.7695 3 11.5508C3 7.85719 5.11941 4.6604 8.20384 3.1069C8.58923 2.91279 9.05565 2.98778 9.36077 3.29291ZM6.8217 6.6696C5.68637 7.97742 5 9.68431 5 11.5508C5 15.6649 8.33513 19 12.4492 19C14.3157 19 16.0226 18.3136 17.3304 17.1783C16.9611 17.2222 16.5853 17.2448 16.2044 17.2448C10.9858 17.2448 6.75521 13.0142 6.75521 7.79557C6.75521 7.41472 6.77779 7.03896 6.8217 6.6696Z"
       ></path>
+    </svg>
+  );
+}
+
+// used the fill in this one becase the other icons are styled with the button component
+function CaretDown() {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="var(--color-text)"
+      viewBox="0 0 24 24"
+      height="24"
+      width="24"
+    >
+      <path xmlns="http://www.w3.org/2000/svg" d="M17 10L12 16L7 10H17Z"></path>
     </svg>
   );
 }

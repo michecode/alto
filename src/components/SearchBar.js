@@ -30,6 +30,11 @@ background-color: none;
   margin-bottom: auto;
 `;
 
+const Icon = styled.div`
+  margin-right: 10px;
+  margin-bottom: auto;
+`
+
 const plantSuggestionRedirect = require("../../data/plantTable.json");
 
 // Teach Autosuggest how to calculate suggestions for any given input value.
@@ -106,13 +111,16 @@ export default function SearchBar() {
         // onSuggestionSelected={console.log(value)}
         inputProps={inputProps}
       />
-
-      <Button
+      <Icon>
+        <SearchIcon/>
+      </Icon>
+      {/* <SearchIcon style={{marginRight: '10px'}}/> */}
+      {/* <Button
         onClick={() => submitSearch(value)}
         aria-label="search"
       >
         <SearchIcon />
-      </Button>
+      </Button> */}
     </StyledPaper>
   );
 }

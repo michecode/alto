@@ -1,21 +1,44 @@
 [
-    {
-        "title": "Light",
-        "links":[
-            "Types of Light",
-            "Window Lighting"
-        ]
-    },
-    {
-        "title":"Watering",
-        "links":[
-            "Bottom Watering"
-        ]
-    },
-    {
-        "title":"Humidity",
-        "links":[
-            "Methods to Increase Humidity"
-        ]
-    }
+  {
+    "title": "Light",
+    "links": ["Types of Light", "Window Lighting"]
+  },
+  {
+    "title": "Watering",
+    "links": ["Underwatering", "Overwatering", "Bottom Watering"]
+  },
+  {
+    "title": "Humidity",
+    "links": ["Methods to Increase Humidity"]
+  },
+  {
+    "title": "Propagation",
+    "links": ["Trailing Plants"]
+  },
+  {
+    "title": "Repotting",
+    "links": ["When to Repot"]
+  },
+  {
+    "title": "Pruning/Trimming",
+    "links": ["20% Rule", "Encourage Branching"]
+  },
+  {
+    "title": "Fertilizing",
+    "links": ["Diluting"]
+  },
+  {
+    "title": "Pests",
+    "links": [
+      "Aphids",
+      "Spider Mites",
+      "Fungus Gnats",
+      "Mealybug",
+      "Scale",
+      "Whitefly",
+      "Broad Mites",
+      "Leafminer",
+      "Spring Tail"
+    ]
+  }
 ]

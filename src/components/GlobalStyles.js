@@ -17,9 +17,6 @@ const GlobalStyles = createGlobalStyle`
   a {
     color: var(--color-text);
   }
-  Link {
-    text-decoration: none;
-  }
 `;
 
 export default GlobalStyles;

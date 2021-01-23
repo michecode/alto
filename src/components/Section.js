@@ -11,25 +11,25 @@ const SectionWrapper = styled.div`
 `;
 
 const TopBar = styled.div`
-    display: flex;
-`
+  display: flex;
+`;
 
 const Title = styled.h1`
-    color: var(--color-text);
-    font-weight: 800;
-    font-size: 30px;
-    flex-grow: 1;
-    margin: 0;
-    @media (max-width: 960px) {
-        font-size: 24px;
-    }
+  color: var(--color-text);
+  font-weight: 800;
+  font-size: 30px;
+  // flex-grow: 1;
+  margin: 0;
+  @media (max-width: 960px) {
+    font-size: 24px;
+  }
 `;
 
 const Body = styled.p`
-    color: var(--color-text);
-    @media (min-width: 960px) {
-        font-size: 20px;
-    }
+  color: var(--color-text);
+  @media (min-width: 960px) {
+    font-size: 20px;
+  }
 `;
 
 const Button = styled.button`
@@ -37,6 +37,7 @@ const Button = styled.button`
   border: none;
   fill: var(--color-text);
   padding: 0px;
+  margin-left: auto;
 `;
 
 export default function Section(props) {
@@ -46,19 +47,16 @@ export default function Section(props) {
   const [expanded, setExpanded] = useState(true);
 
   return (
-    <SectionWrapper>
-        <TopBar>
-      <Title>{title}</Title>
-      <Button
-        onClick={() => setExpanded(!expanded)}
-        aria-label="collapse section"
-      >
-        {expanded ? <UpIcon /> : <DownIcon />}
-      </Button>
+    <SectionWrapper onClick={() => setExpanded(!expanded)}>
+      <TopBar>
+        <Title>{title}</Title>
+        <Button aria-label="collapse section">
+          {expanded ? <UpIcon /> : <DownIcon />}
+        </Button>
       </TopBar>
       <hr />
       <div style={{ display: 'flex' }}>
-        <Collapse in={expanded} unmountOnExit>
+        <Collapse in={expanded}>
           <Body>{body}</Body>
         </Collapse>
       </div>
