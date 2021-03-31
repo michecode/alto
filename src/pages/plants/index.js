@@ -194,7 +194,7 @@ export default function Index({ data }, props) {
           onClick={() => navigate(`${plant.node.mongodb_id}`)}
           key={plant.node.name}
         >
-          <PlantCard name={plant.node.name} />
+          <PlantCard name={plant.node.name} id={plant.node.mongodb_id} />
         </div>
       );
     } else return null;

@@ -27,14 +27,12 @@ const Title = styled.p`
 `
 
 export default function Plantcard(props) {
-    const name = props.name;
-
     return (
         <Card>
             <PicWrapper>
-                <PlantPic height={150} width={150}/>
+                <PlantPic height={150} width={150} id={props.id} name={props.name}/>
             </PicWrapper>
-            <Title>{name}</Title>
+            <Title>{props.name}</Title>
         </Card>
     )
 }

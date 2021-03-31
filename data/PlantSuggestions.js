@@ -1,6 +1,7 @@
 export default [
     "sansevieria",
     "sansevieria trifasciata",
+    "dracaena trifasciata",
     "snake plant",
     "mother-in-law's tongue",
     "jinn's tongue",

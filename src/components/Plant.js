@@ -133,7 +133,7 @@ export default function Plant({ data }) {
 
   const picandbio_ = (
     <PicXBio>
-      <PlantPic />
+      <PlantPic id={plant.mongodb_id} name={plant.name} />
       <BioWrapper
         bio={plant.bio}
         classification={plant.classification}
@@ -185,11 +185,11 @@ export default function Plant({ data }) {
 export const pageQuery = graphql`
   query($id: String!) {
     mongodbAltoDbPlants(mongodb_id: { eq: $id }) {
+      mongodb_id
       altNames
       bio
       botanicalName
       classification
-
       difficulty
       fertilizer
       growthSpeed
