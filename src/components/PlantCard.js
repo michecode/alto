@@ -24,6 +24,7 @@ const Title = styled.p`
     // font-size: 100%;
     text-align: center;
     color: var(--color-text);
+    margin: 10px 0px 10px 0px;
 `
 
 export default function Plantcard(props) {

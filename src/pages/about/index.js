@@ -86,9 +86,7 @@ export default function Index() {
         <Divider />
         <Header style={{ marginTop: '15px' }}>art</Header>
         <Description>
-          All plant illustrations on this website are created by me and my
-          friend Mary Jo. Check out her artwork and buy some of her prints{' '}
-          <a href="https://etsy.com">here</a>.
+          All plant illustrations on this website are created by me.
         </Description>
         <Description>
           All icons you see besides the logo are sourced from free/open icon
@@ -101,7 +99,7 @@ export default function Index() {
         <Description>
           I aim to make money from the work I put into this website in order to
           pay off my student loans. There may be ads on some pages and affiliate
-          links on others.
+          links on others. I also plan to sell merch with the plant assets.
         </Description>
         <Description>
           A quick note on privacy on this website - I only use cloudflare

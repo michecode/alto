@@ -4,6 +4,7 @@ import { Link } from 'gatsby';
 import styled from 'styled-components';
 import Paper from '@material-ui/core/Paper';
 import Layout from '../../components/Layout';
+import PlantPic from '../../components/PlantPic';
 
 const Header = styled.h1`
   @media (min-width: 960px) {
@@ -16,15 +17,20 @@ const Header = styled.h1`
   }
 `;
 
+const BelowHeader = styled.div`
+  display: flex;
+`;
+
 const Grid = styled.div`
   display: grid;
   margin: 10px;
   grid-gap: 10px;
   @media (max-width: 400px) {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
   }
   @media (min-width: 900px) {
     grid-template-columns: repeat(4, 1fr);
+    width: 50%;
   }
 `;
 
@@ -35,12 +41,16 @@ const Card = styled(Paper)`
   }
 `;
 
-const Icon = styled.svg`
-  background: none;
-`;
-
 const Label = styled.p`
   font-size: 20px;
+`;
+
+const PicContainer = styled.div`
+  display: flex;
+  flex-grow: 1;
+  @media (max-width: 700px) {
+    display: none;
+  }
 `;
 
 export default function Index() {
@@ -60,50 +70,46 @@ export default function Index() {
         <title>Learn - Alto</title>
       </Helmet>
       <Header>BECOME A GREEN THUMB</Header>
+      <Header>This page is under construction!</Header>
+      <BelowHeader>
       <Grid>
         <Card>
-          <Icon>
             <GlobeIcon />
-          </Icon>
           <Label>Light</Label>
         </Card>
         <Card>
-          <Icon>
             <GlobeIcon />
-          </Icon>
           <Label>Watering</Label>
         </Card>
         <Card>
-          <Icon>
             <GlobeIcon />
-          </Icon>
-          <Label>Light</Label>
+          <Label>Humidity</Label>
         </Card>
         <Card>
-          <Icon>
             <GlobeIcon />
-          </Icon>
-          <Label>Light</Label>
+          <Label>Propagation</Label>
         </Card>
         <Card>
-          <Icon>
             <GlobeIcon />
-          </Icon>
-          <Label>Light</Label>
+          <Label>Repotting</Label>
         </Card>
         <Card>
-          <Icon>
             <GlobeIcon />
-          </Icon>
-          <Label>Light</Label>
+          <Label>Pruning</Label>
         </Card>
         <Card>
-          <Icon>
             <GlobeIcon />
-          </Icon>
-          <Label>Light</Label>
+          <Label>Fertilizing</Label>
+        </Card>
+        <Card>
+            <GlobeIcon />
+          <Label>Pests</Label>
         </Card>
       </Grid>
+      <PicContainer>
+      <PlantPic id={"chamaedorea-elegans"} name={"Parlor Palm"}/>
+      </PicContainer>
+      </BelowHeader>
     </Layout>
   );
 }

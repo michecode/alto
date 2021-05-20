@@ -106,6 +106,7 @@ export default function Index({ data }, props) {
   const [palm, setPalm] = useState(true);
   const [succulent, setSucculent] = useState(true);
   const [cactus, setCactus] = useState(true);
+  const [calathea, setCalathea] = useState(true);
   // Light
   const [lowLight, setLowLight] = useState(true);
   const [mediumLight, setMediumLight] = useState(true);
@@ -138,10 +139,11 @@ export default function Index({ data }, props) {
     if palm was false (unchecked) the first condition fails and will trigger the first indented if to which all plants with
         a classification of Palm will not get rendered due to the false return
     */
-    if (!(palm && succulent && cactus)) {
+    if (!(palm && succulent && cactus && calathea)) {
       if (!palm && c === 'Palm') return false;
       if (!succulent && c === 'Succulent') return false;
       if (!palm && c === 'Cactus') return false;
+      if (!calathea && c === 'Calathea') return false;
     }
     /* check light
     if low light is unchecked, the top if passes and checkes if they shouldnt render. if a plant can survive in low light and nothing else
@@ -223,6 +225,7 @@ export default function Index({ data }, props) {
           condition={succulent}
           changeState={setSucculent}
         />
+        <Checkbox name={'Calathea'} condition={calathea} changeState={setCalathea} />
         <Checkbox name={'Cactus'} condition={cactus} changeState={setCactus} />
       </CheckGroup>
       {/* Light Filter */}
