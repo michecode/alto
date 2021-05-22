@@ -80,6 +80,8 @@ const PicXBio = styled.div`
   display: flex;
   flex-direction: column;
   flex-shrink: 0;
+  // safari stretch bug(not rly) thing on mobile
+  // align-items: center;
   @media (max-width: 960px) {
     margin-left: 15px;
     margin-right: 15px;
@@ -91,6 +93,11 @@ const PicXBio = styled.div`
     // width: 300px;
     width: 20%;
   }
+`;
+
+const Pic = styled.div`
+  // DO NOT REMOVE ME
+  // THIS DIV IS WHAT MAKES THE IMAGE NOT STRETCH IN SAFARI
 `;
 
 const BioWrapper = styled(Bio)`
@@ -133,7 +140,10 @@ export default function Plant({ data }) {
 
   const picandbio_ = (
     <PicXBio>
-      <PlantPic id={plant.mongodb_id} name={plant.name} />
+      {/* DO NOT FUCKING REMOVE ME. THIS DIV IS WHAT MAKES SAFARI ACTUALLY WORK */}
+      <Pic>
+        <PlantPic id={plant.mongodb_id} name={plant.name} />
+      </Pic>
       <BioWrapper
         bio={plant.bio}
         classification={plant.classification}
