@@ -2,7 +2,7 @@
   "name": "plant-vision",
   "private": true,
   "description": "Plant wiki",
-  "version": "0.3.6.1",
+  "version": "0.4",
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",

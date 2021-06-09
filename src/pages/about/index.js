@@ -8,7 +8,7 @@ import 'fontsource-shrikhand/400-normal.css';
 const TextContainer = styled.div`
   @media (max-width: 960px) {
     margin: 8vh auto 0 auto;
-    width: 90%
+    width: 90%;
   }
   @media (min-width: 960px) {
     margin: 200px auto 0 auto;
@@ -64,7 +64,7 @@ export default function Index() {
           covered on this website.
         </Description>
         <Description>
-          Currently it is just me working on this website. If you want to talk
+          Currently it is just me working on this website. If you want to talk,
           feel free to email about anything.
         </Description>
         <Description>
@@ -102,7 +102,12 @@ export default function Index() {
           links on others. I also plan to sell merch with the plant assets.
         </Description>
         <Description>
-          A quick note on privacy on this website - I only use cloudflare
+          If you wish to support the site directly, I currently have all the
+          plant art on RedBubble. You can find the links on all individual plant
+          pages.
+        </Description>
+        <Description>
+          A quick note on privacy on this website - I may use cloudflare
           analytics for internal development currently and use a couple
           kilobytes to store your theme preference on your browser locally. If
           you are worried about your privacy, I recommend using an ad blocker
@@ -111,8 +116,7 @@ export default function Index() {
           <a href="https://privacybadger.org">Privacy Badger</a>. Additionally,
           if you wish to support my site but maintain privacy I recommend you
           use <a href="https://brave.com">Brave Browser</a> and show your
-          friends the site. I do not currently have a way to support the site
-          directly besides advertising/affiliate.
+          friends the site.
         </Description>
         <Header style={{ marginTop: '15px' }}>tech</Header>
         <Description>

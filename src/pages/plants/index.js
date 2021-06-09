@@ -3,42 +3,52 @@ import { navigate, graphql } from 'gatsby';
 import styled from 'styled-components';
 import { Helmet } from 'react-helmet';
 import Drawer from '@material-ui/core/Drawer';
+import Tooltip from '@material-ui/core/Tooltip';
 import Layout from '../../components/Layout';
 import PlantCard from '../../components/PlantCard';
 import Checkbox from '../../components/Checkbox';
 
+/*
+Grid!!
+2/row makes sense until 600px
+3/row makes sense until 1300px
+4/row makes sense until 1600px
+5/row makes sense until idk.
+*/
 const Plants = styled.div`
   display: grid;
   width: 100%;
   margin-top: 10px;
   margin-bottom: 10px;
   grid-gap: 10px;
-  @media (max-width: 400px) {
-    grid-template-columns: 1fr 1fr;
-  }
-  @media (min-width: 550px) {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-  }
-  @media (min-width: 900px) {
-    grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: 1fr 1fr;
+  @media (min-width: 600px) {
+    grid-template-columns: 1fr 1fr 1fr;
   }
   @media (min-width: 1300px) {
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(4, 1fr);
   }
   @media (min-width: 1600px) {
-    grid-template-columns: repeat(8, 1fr);
+    grid-template-columns: repeat(5, 1fr);
   }
 `;
 
+// 960 >> 1400px width increase width %
 const Sidebar = styled.div`
   display: flex;
   flex-direction: column;
   position: sticky;
-  width: 17%;
   height: 92vh;
   border-style: solid;
+  border-radius: 10px;
   @media (max-width: 960px) {
     display: none;
+  }
+  @media (max-width: 1360px) {
+    width: 23%;
+  }
+  @media (min-width: 1361px) {
+    width: 17%;
   }
 `;
 
@@ -101,6 +111,13 @@ const MobileFilterDiv = styled.div`
   width: 90%;
 `;
 
+const ToolTipButton = styled.button`
+  padding: 0px;
+  background-color: var(--color-background);
+  fill: var(--color-text);
+  border: none;
+`;
+
 export default function Index({ data }, props) {
   // Classification
   const [palm, setPalm] = useState(true);
@@ -124,6 +141,12 @@ export default function Index({ data }, props) {
   const [open, setOpen] = useState(false);
 
   const plants = data.allMongodbAltoDbPlants.edges;
+
+  function getPicDimensions() {
+    // switch(window.screen.availWidth) {
+    //   case
+    // }
+  }
 
   /*
     classFilter = if plant matches classifcation => render
@@ -225,16 +248,22 @@ export default function Index({ data }, props) {
           condition={succulent}
           changeState={setSucculent}
         />
-        <Checkbox name={'Calathea'} condition={calathea} changeState={setCalathea} />
+        <Checkbox
+          name={'Calathea'}
+          condition={calathea}
+          changeState={setCalathea}
+        />
         <Checkbox name={'Cactus'} condition={cactus} changeState={setCactus} />
       </CheckGroup>
       {/* Light Filter */}
-      <FilterTitle>Light</FilterTitle>
-      <FilterInfo>
+      <Tooltip title="The group the plant is in may not be the optimal lighting condition. Click on the plant to get more accurate lighting details.">
+      <FilterTitle>Light <ToolTipButton><TooltipIcon/></ToolTipButton></FilterTitle>
+      </Tooltip>
+      {/* <FilterInfo>
         The group the plant is in may not be the optimal lighting condition.
         <br />
         Click on the plant to get more accurate lighting details.
-      </FilterInfo>
+      </FilterInfo> */}
       <CheckGroup>
         <Checkbox
           name={'Low Light'}
@@ -258,11 +287,14 @@ export default function Index({ data }, props) {
         />
       </CheckGroup>
       {/* Toxicity Filter */}
-      <FilterTitle>Toxicity</FilterTitle>
-      <FilterInfo>
+      <Tooltip title="Click on plant to check for details on toxicity. Many plants are very
+        mild.">
+      <FilterTitle>Toxicity <ToolTipButton><TooltipIcon/></ToolTipButton></FilterTitle>
+      </Tooltip>
+      {/* <FilterInfo>
         Click on plant to check for details on toxicity. Many plants are very
         mild.
-      </FilterInfo>
+      </FilterInfo> */}
       <CheckGroup>
         <Checkbox name={'Toxic'} condition={toxic} changeState={setToxic} />
       </CheckGroup>
@@ -324,6 +356,30 @@ export default function Index({ data }, props) {
         </div>
       </div>
     </Layout>
+  );
+}
+
+function TooltipIcon() {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      height="18"
+      width="18"
+    >
+      <path
+        xmlns="http://www.w3.org/2000/svg"
+        d="M12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4ZM2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12Z"
+      ></path>
+      <path
+        xmlns="http://www.w3.org/2000/svg"
+        d="M12 10C12.5523 10 13 10.4477 13 11V17C13 17.5523 12.5523 18 12 18C11.4477 18 11 17.5523 11 17V11C11 10.4477 11.4477 10 12 10Z"
+      ></path>
+      <path
+        xmlns="http://www.w3.org/2000/svg"
+        d="M13.5 7.5C13.5 8.32843 12.8284 9 12 9C11.1716 9 10.5 8.32843 10.5 7.5C10.5 6.67157 11.1716 6 12 6C12.8284 6 13.5 6.67157 13.5 7.5Z"
+      ></path>
+    </svg>
   );
 }
 

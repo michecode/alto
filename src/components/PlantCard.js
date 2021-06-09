@@ -5,6 +5,7 @@ import PlantPic from './PlantPic';
 import 'fontsource-shrikhand/400-normal.css';
 
 const Card = styled(Paper)`
+    // height: 10vh;
     && {
         background-color: var(--color-paper);
         border-radius: 10px;
@@ -14,8 +15,9 @@ const Card = styled(Paper)`
     }
 `
 
-const PicWrapper = styled.div`
+const Wrapper = styled.div`
     margin: 5px auto;
+    // height: 75%;
 `
 
 const Title = styled.p`
@@ -26,13 +28,31 @@ const Title = styled.p`
     color: var(--color-text);
     margin: 10px 0px 10px 0px;
 `
-
+/*
+Basically I'm defining the picture size at first paint. If they resize they can refresh the page
+idgaf. 
+*/
 export default function Plantcard(props) {
+    // default height and width is 150px.
+    let y=150, x=150;
+    /*
+    When screen width is below 600px keep at 150px.
+    */
+    if(window.screen.availWidth <= 600);
+    else if(window.screen.availWidth > 600 && window.screen.availWidth < 1275) {
+        y = 200;
+        x = 200;
+    }
+    else if(window.screen.availWidth >= 1275) {
+        y=250;
+        x=250;
+    }
+
     return (
         <Card>
-            <PicWrapper>
-                <PlantPic height={150} width={150} id={props.id} name={props.name}/>
-            </PicWrapper>
+            <Wrapper>
+                <PlantPic height={y} width={x} filtering={true} id={props.id} name={props.name}/>
+            </Wrapper>
             <Title>{props.name}</Title>
         </Card>
     )

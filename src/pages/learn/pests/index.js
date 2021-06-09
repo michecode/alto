@@ -79,12 +79,44 @@ export default function Index(props) {
       <TableOfContent category={7} />
       <TextContainer>
         <Header>Pests</Header>
-        <Text>bugs r annoying</Text>
+        <Text>
+          Happy plants are healthy plants. Plants that don't have their needs
+          met may be more susceptible to infestations.
+        </Text>
         <Line />
         <SectionHeader id="aphids">Aphids</SectionHeader>
         <Text>dasd</Text>
         <Line />
-        <PreviousNext previous={true} next={false} l1={'Fertilizing'} l2={null}/>
+        <SectionHeader id="spider-mites">Spider Mites</SectionHeader>
+        <Text>dasd</Text>
+        <Line />
+        <SectionHeader id="fungus-gnats">Fungus Gnats</SectionHeader>
+        <Text>dasd</Text>
+        <Line />
+        <SectionHeader id="mealy-bugs">Mealy Bugs</SectionHeader>
+        <Text>dasd</Text>
+        <Line />
+        <SectionHeader id="scale">Scale</SectionHeader>
+        <Text>dasd</Text>
+        <Line />
+        <SectionHeader id="whitefly">Whitefly</SectionHeader>
+        <Text>dasd</Text>
+        <Line />
+        <SectionHeader id="broad-mites">Broad Mites</SectionHeader>
+        <Text>dasd</Text>
+        <Line />
+        <SectionHeader id="leafminer">Leafminer</SectionHeader>
+        <Text>dasd</Text>
+        <Line />
+        <SectionHeader id="spring-tail">Spring Tail</SectionHeader>
+        <Text>dasd</Text>
+        <Line />
+        <PreviousNext
+          previous={true}
+          next={false}
+          l1={'Fertilizing'}
+          l2={null}
+        />
       </TextContainer>
     </Layout>
   );

@@ -81,16 +81,15 @@ const DropLink = styled(LinkWrapper)`
 const DropList = styled.ul`
   display: none;
   position: absolute;
-  z-index: 1;
   flex-direction: column;
   background-color: var(--color-paper);
   border-radius: 5px;
-  // height: calc(auto + 5px);
+  z-index: 1;
   padding-left: 0px;
   ${LinkWrapper}:hover & {
     display: flex;
-    // display: block;
-    transition: height 0.5s;
+    border-style: solid;
+    border-radius: 10px;
   }
 `;
 
@@ -117,7 +116,7 @@ export function Navigation(props) {
               learn
               <CaretDown />
             </NavLink>
-            <DropList>
+            <DropList light={colorMode==='light'}>
               <DropLink to="/learn/light">Light</DropLink>
               <DropLink to="/learn/watering">Watering</DropLink>
               <DropLink to="/learn/humidity">Humidity</DropLink>

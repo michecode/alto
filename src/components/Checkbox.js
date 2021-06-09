@@ -6,7 +6,7 @@ const Label = styled.label`
 `
 
 const Input = styled.input`
-    background-color: var(--color-magnolia);
+    background-color: var(--color-background);
 `
 
 /*
