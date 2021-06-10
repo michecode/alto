@@ -10,7 +10,7 @@ export default function Index(props) {
 
     return (
         <>
-            
+            hello
         </>
     )
 }
