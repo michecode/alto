@@ -142,12 +142,6 @@ export default function Index({ data }, props) {
 
   const plants = data.allMongodbAltoDbPlants.edges;
 
-  function getPicDimensions() {
-    // switch(window.screen.availWidth) {
-    //   case
-    // }
-  }
-
   /*
     classFilter = if plant matches classifcation => render
     lightFilter = if plant can live with less light => render

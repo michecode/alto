@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { graphql } from 'gatsby';
+import { graphql, navigate } from 'gatsby';
 import styled from 'styled-components';
 import { Helmet } from 'react-helmet';
 import Layout from './Layout';
@@ -119,16 +119,6 @@ const Sections = styled.div`
   }
 `;
 
-const RedbubbleBox = styled.div`
-  border-style: solid;
-  border-radius: 10px;
-  border-color: var(--color-text);
-`;
-
-const RedbubbleLink = styled.a`
-  margin: 5px auto 5px auto;
-`;
-
 const UtilityBar = styled.div`
   display: flex;
   // background: var(--color-paper);
@@ -203,19 +193,19 @@ export default function Plant({ data }) {
         <PlantPic id={plant.mongodb_id} name={plant.name} />
       </Pic>
       <UtilityBar>
-        <UButtonFill style={{ marginRight: '5px' }}>
+        <UButtonFill style={{ marginRight: '5px' }} aria-label="Go to Redbubble">
           <a href={plant.redbubble} style={{ textDecoration: 'none' }}>
             <UtilityIcon>
               <CartIcon />
             </UtilityIcon>
           </a>
         </UButtonFill>
-        <UButtonFill>
-          <UtilityIcon>
+        <UButtonFill aria-label={`Go to ${plant.classification} collection`}>
+          <UtilityIcon onClick={() => navigate(`../../collections/${plant.classification.toLowerCase() + 's'}`)}>
             <CollectionIcon />
           </UtilityIcon>
         </UButtonFill>
-        <UBFZoom style={{ marginLeft: '5px' }}>
+        <UBFZoom style={{ marginLeft: '5px' }} aria-label="Enlarge plant picture">
           <UtilityIcon onClick={() => togglePopUp()} style={{}}>
             <ZoomIcon />
           </UtilityIcon>

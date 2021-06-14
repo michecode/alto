@@ -13,6 +13,8 @@ export default function Plantpic(props) {
     source = props.id;
   }
 
+  console.log('x=' + x + ': y= ' + y);
+
   try {
     if(props.filtering != null && props.filtering)
         source = require('../../assets/4filtering/' + source + '.svg');

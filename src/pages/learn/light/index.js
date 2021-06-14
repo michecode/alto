@@ -75,18 +75,46 @@ export default function Index(props) {
         />
         <meta name="viewport" content="width=device.width, initial-scale=1.0" />
         <title>Light - Alto</title>
-      </Helmet> 
+      </Helmet>
       <TableOfContent category={0} />
       <TextContainer>
         <Header>Light</Header>
         <Line />
         <SectionHeader id="types-of-light">Types of Light</SectionHeader>
-        <Text>bonjour</Text>
+        <Text>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Adipiscing
+          enim eu turpis egestas pretium aenean pharetra magna. Platea dictumst
+          quisque sagittis purus sit. Nulla pellentesque dignissim enim sit amet
+          venenatis urna cursus. Platea dictumst quisque sagittis purus sit amet
+          volutpat consequat. Nam libero justo laoreet sit amet. Est ultricies
+          integer quis auctor. Porta nibh venenatis cras sed felis eget velit.
+          Facilisis sed odio morbi quis commodo odio. Montes nascetur ridiculus
+          mus mauris vitae ultricies leo integer. Id porta nibh venenatis cras
+          sed felis eget. Pretium aenean pharetra magna ac placerat vestibulum
+          lectus mauris ultrices. Orci porta non pulvinar neque laoreet
+          suspendisse interdum. Est ultricies integer quis auctor elit sed
+          vulputate.
+        </Text>
         <Line />
         <SectionHeader id="window-lighting">Window Lighting</SectionHeader>
-        <Text>windows</Text>
+        <Text>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Adipiscing
+          enim eu turpis egestas pretium aenean pharetra magna. Platea dictumst
+          quisque sagittis purus sit. Nulla pellentesque dignissim enim sit amet
+          venenatis urna cursus. Platea dictumst quisque sagittis purus sit amet
+          volutpat consequat. Nam libero justo laoreet sit amet. Est ultricies
+          integer quis auctor. Porta nibh venenatis cras sed felis eget velit.
+          Facilisis sed odio morbi quis commodo odio. Montes nascetur ridiculus
+          mus mauris vitae ultricies leo integer. Id porta nibh venenatis cras
+          sed felis eget. Pretium aenean pharetra magna ac placerat vestibulum
+          lectus mauris ultrices. Orci porta non pulvinar neque laoreet
+          suspendisse interdum. Est ultricies integer quis auctor elit sed
+          vulputate.
+        </Text>
         <Line />
-        <PreviousNext previous={false} next={true} l1={null} l2={'Watering'}/>
+        <PreviousNext previous={false} next={true} l1={null} l2={'Watering'} />
       </TextContainer>
     </Layout>
   );

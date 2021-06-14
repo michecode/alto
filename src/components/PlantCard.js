@@ -38,45 +38,17 @@ export default function Plantcard(props) {
     x = 150;
 
   /* 
-  useEffect with the [] is basically componentDidMount for some reason.
-  this is so that window can run on the server
-  MAY CAUSE BUGS IN THE FUTURE!!
+  need to check if window exists so server can render
   */
-  //   useEffect(() => {
-  //       console.log('yello');
-  //     if (window.screen.availWidth <= 600);
-  //     else if (
-  //       window.screen.availWidth > 600 &&
-  //       window.screen.availWidth < 1275
-  //     ) {
-  //         console.log('Screen Width: ' + window.screen.availWidth + '. Setting /plants pictures to 200x200');
-  //       y = 200;
-  //       x = 200;
-  //     } else if (window.screen.availWidth >= 1275) {
-  //         console.log('Screen Width: ' + window.screen.availWidth + '. Setting /plants pictures to 200x200');
-  //       y = 250;
-  //       x = 250;
-  //     }
-  //   }, []);
   if (typeof window !== 'undefined') {
     if (window.screen.availWidth <= 600);
     else if (
       window.screen.availWidth > 600 &&
       window.screen.availWidth < 1275
     ) {
-      console.log(
-        'Screen Width: ' +
-          window.screen.availWidth +
-          '. Setting /plants pictures to 200x200'
-      );
       y = 200;
       x = 200;
     } else if (window.screen.availWidth >= 1275) {
-      console.log(
-        'Screen Width: ' +
-          window.screen.availWidth +
-          '. Setting /plants pictures to 200x200'
-      );
       y = 250;
       x = 250;
     }

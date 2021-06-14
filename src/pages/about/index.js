@@ -90,8 +90,8 @@ export default function Index() {
         </Description>
         <Description>
           All icons you see besides the logo are sourced from free/open icon
-          sets. Either <a href="https://icons.mono.company">Mono's</a> icon set
-          or <a href="https://systemuicons.com/">systemuicons</a>. All fonts
+          sets. Primarily sourced from <a href="https://icons.mono.company">Mono's</a> icon set
+          and I think I used a couple from <a href="https://systemuicons.com/">systemuicons</a>. All fonts
           used are provided by{' '}
           <a href="https://github.com/fontsource/fontsource">fontsource</a>.
         </Description>
@@ -99,7 +99,7 @@ export default function Index() {
         <Description>
           I aim to make money from the work I put into this website in order to
           pay off my student loans. There may be ads on some pages and affiliate
-          links on others. I also plan to sell merch with the plant assets.
+          links on others. Additionally I sell merch with the plant assets.
         </Description>
         <Description>
           If you wish to support the site directly, I currently have all the
@@ -127,9 +127,7 @@ export default function Index() {
         </Description>
         <Description>
           Also, this website is hosted on{' '}
-          <a href="https://render.com">Render</a>. Obviously I'm not partnered
-          with them, they just provide the best hosting of all the platforms
-          I've tested while also being cheaper and easier to use.
+          <a href="https://render.com">Render</a>. They're super cheap and easy.
         </Description>
       </TextContainer>
     </Layout>

@@ -69,7 +69,7 @@ export default function Home() {
           <LinkWrapper to="/request">
             <UnderText>Don't see the plant you're looking for?</UnderText>
             <br/>
-            <UnderText>Send me an email and I'll add it asap</UnderText>
+            {/* <UnderText>Send me an email and I'll add it asap</UnderText> */}
           </LinkWrapper>
           <hr />
           <UnderText style={{ textAlign: 'center' }}>
