@@ -21,4 +21,8 @@ export default [
   'zanzibar gem',
   'welcome plant',
   'cardboard plant',
-];
+  'ficus elastica',
+  'rubber plant',
+  'rubber tree',
+  'india rubber plant',
+  'philodendron'];

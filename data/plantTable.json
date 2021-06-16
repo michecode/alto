@@ -20,5 +20,10 @@
   "zz-plant": "zamioculcas-zamiifolia",
   "zanzibar-gem": "zamioculcas-zamiifolia",
   "welcome-plant": "zamioculcas-zamiifolia",
-  "cardboard-plant": "zamioculcas-zamiifolia"
+  "cardboard-plant": "zamioculcas-zamiifolia",
+  "ficus-elastica": "ficus-elastica",
+  "rubber-plant": "ficus-elastica",
+  "rubber-tree": "ficus-elastica",
+  "india-rubber-plant": "ficus-elastica",
+  "philodendron": "philodendron"
 }
