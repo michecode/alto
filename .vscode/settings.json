@@ -1,0 +1,9 @@
+{
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": false,
+  "editor.quickSuggestions": {
+    "strings": true
+  },
+  "mochaExplorer.files": "test/**/*.{j,t}s"
+}
