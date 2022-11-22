@@ -1,12 +1,10 @@
 ---
 import { getAllPlants } from '../../api';
 
-export async function getStaticPaths() {
-  const allPlants = await getAllPlants();
-
-  return allPlants.map((plant: Plant) => ({
-    params: { slug: plant.slug },
-    props: { plant },
-  }));
-}
+const plants = await getAllPlants();
 ---
+
+<div>
+  hey bitch.
+  {console.log(plants)}
+</div>

@@ -1,0 +1,18 @@
+---
+import { getAllPlants } from '../../api';
+
+export async function getStaticPaths() {
+  const allPlants = await getAllPlants();
+
+  return allPlants.map((plant: Plant) => ({
+    params: { slug: plant.slug },
+    props: { plant },
+  }));
+}
+
+const { plant } = Astro.props;
+---
+
+<div>
+  {plant.name}
+</div>

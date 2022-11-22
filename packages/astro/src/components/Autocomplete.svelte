@@ -1,11 +1,6 @@
 <script>
   // At build I need to query for the list of names
-  import { supabase } from '../utils/supabaseClient';
-  const { data: plants, error } = supabase
-    .from("plants")
-    .select("id, names");
-  console.log(plants, error);
-    
+  
     
   /* FILTERING countres DATA BASED ON INPUT */	
   let filteredPlants = [];

@@ -1,6 +1,6 @@
 <!-- Modified version of https://github.com/themesberg/flowbite-svelte/blob/main/src/lib/utils/Popper.svelte -->
 <script lang="ts">
-  import { onMount, createEventDispatcher } from 'svelte/types/runtime';
+  import { onMount, createEventDispatcher } from 'svelte';
   import { createPopper, type Rect } from '@popperjs/core';
   import type { Placement, Instance } from '@popperjs/core';
 

@@ -6,8 +6,8 @@ export async function getAllPlants() {
   return data;
 }
 
-export async function getPlant(botanical: string) {
-  const query = `*[botanical_name == '${botanical}']`;
+export async function getPlant(slug: string) {
+  const query = `*[slug == '${slug}']`;
   const data = await useSanityClient().fetch(query);
   return data;
 }
