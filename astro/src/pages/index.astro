@@ -1,0 +1,37 @@
+---
+import Layout from '../layouts/Layout.astro';
+// import Picture from '@astrojs/image';
+// import DarkGradient from '../images/dark-landing-gradient.png';
+import Autocomplete from '../components/Autocomplete.svelte';
+---
+
+<svelte:fragment>
+  <div class="relative">
+    <div
+      class="overflow-hidden -z-50 absolute blur-[200px] w-4/5 left-0 right-0 top-0 mx-auto translate-3d-0"
+    >
+      <div class="h-0 pt-[100vh]">
+        <div class="absolute top-0 left-0 w-full h-[100vh]">
+          <div
+            class="w-full h-full rounded-[50%] bg-gradient-0 from-byz to-silver/20"
+          >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <Layout title="Alto">
+    <div class="flex flex-col relative mt-48">
+      <h1 class="text-8xl opacity-75 font-serif font-black text-center">
+        alto
+      </h1>
+      <h3 class="text-6xl opacity-75 font-serif font-black text-center">
+        Your Grow Guide for Every Green
+      </h3>
+      <div class="bg-white/75 w-1/2 mx-auto mt-8 rounded-2xl">f</div>
+    </div>
+    <Autocomplete client:media="(min-width: 1024px)" />
+    <!-- <img src={DarkGradient} /> -->
+    <!-- <Picture src={DarkGradient} alt="" widths={[]}/> -->
+  </Layout>
+</svelte:fragment>
