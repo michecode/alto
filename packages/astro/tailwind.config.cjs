@@ -60,15 +60,5 @@ module.exports = {
         },
       );
     }),
-    plugin(function ({ matchUtilities, theme }) {
-      matchUtilities(
-        {
-          'translate-3d': (value) => ({
-            transform: `translate3d(${value}, ${value}, ${value})`,
-          }), // this is actual CSS
-        },
-        { values: theme('translate'), supportsNegativeValues: true },
-      );
-    }),
   ],
 };

@@ -5,7 +5,14 @@
   import { changeTheme, getTheme } from "../utils/utils";
   import colors from '../styles/colors';
 
+  // Inital theme.
   const theme = getTheme();
+  let isDark = theme === 'dark' ? true : false;
+
+  const handleTheme = () => {
+    changeTheme();
+    isDark = !isDark;
+  }
 </script>
 
 <header class="flex justify-between items-center my-4 mx-8">
@@ -29,11 +36,11 @@
     >
       learn
     </h1>
-    <button on:click={changeTheme}>
-      {#if theme === 'light'}
-      <Icon type="thickMoon" height="2rem" width="2rem" focusable fill={colors.byz}/>
+    <button on:click={handleTheme}>
+      {#if isDark}
+      <Icon type="thickSun" focusable fill={colors.white}/>
       {:else}
-      <Icon type="thickSun" height="2rem" width="2rem" focusable fill={colors.white}/>
+      <Icon type="thickMoon" focusable fill={colors.byz}/>
       {/if}
     </button>
   </div>

@@ -1,7 +1,7 @@
 <script>
   export let type;
-  export let width = "1rem";
-  export let height = "1rem";
+  export let width = "32px";
+  export let height = "32px";
   export let focusable = false;
   export let fill = "#0D0D0D";
   let icons = {
