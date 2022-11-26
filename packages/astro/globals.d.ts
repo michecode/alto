@@ -38,3 +38,10 @@ declare interface Plant {
   _type: string;
   _updatedAt: string;
 }
+
+declare interface SearchObject {
+  botanical_name: string;
+  name: string;
+}
+
+declare type SearchCollection = SearchObject[];

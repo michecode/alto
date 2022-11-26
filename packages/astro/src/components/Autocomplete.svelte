@@ -1,39 +1,25 @@
 <script lang="ts">
   // At build I need to query for the list of names
-  const plants = ['Parlor Palm', 'Chamaedorea Elegans', 'Neanthe Bella Palm', 'Maddy', 'Madison', 'Madster', 'Madlions'];
+  export let plants: SearchCollection = [];
 
-  let filteredPlants: string[] = [];
+  let filteredPlants: SearchObject[] = [];
 
   const filterPlants = () => {
     filteredPlants = plants.filter((plant) => {
-      return plant.toLowerCase().startsWith(inputValue.toLowerCase());
+      return plant.name.toLowerCase().startsWith(inputValue.toLowerCase());
     })
+    filteredPlants = filteredPlants.slice(0,5);
   };
-  
-  /* HANDLING THE INPUT */
-  // let searchInput: HTMLElement; // use with bind:this to focus element
+
   let inputValue: string = "";
     
   $: if (!inputValue) {
     filteredPlants = [];
     hiLiteIndex = -1;
   }
-  
-  // const clearInput = () => {
-  //   inputValue = "";	
-  //   searchInput.focus();
-  // }
-    
-  // const setInputVal = (plantName: string) => {
-  //   inputValue = plantName;
-  //   filteredPlants = [];
-  //   hiLiteIndex = null;
-  //   // navigate to page
-  //   console.log('going to', plantName);
-  // }	
 
   const navigate = (target: string) => {
-    window.location.href = `/${target}`;
+    window.location.href = `/plants/${target}`;
   }
   
   /* NAVIGATING OVER THE LIST OF COUNTRIES W HIGHLIGHTING */	
@@ -47,11 +33,12 @@
     } else if (e.key === "ArrowUp") {
       hiLiteIndex === 0 || hiLiteIndex === -1 ? hiLiteIndex = max : hiLiteIndex -= 1;
     } else if (e.key === "Enter") {
-      navigate(filteredPlants[hiLiteIndex]);
+      navigate(filteredPlants[hiLiteIndex].botanical_name);
     } else {
       return;
     }
   } 
+  console.log(filteredPlants, plants);
 </script>
 
 <div class="flex flex-col w-3/4 mx-auto mt-8 bg-white rounded-2xl opacity-75 drop-shadow-lg">
@@ -68,14 +55,15 @@
   <!-- FILTERED LIST -->
   {#if filteredPlants.length > 0}
     <hr class="mx-4"/>
-    <ul class="mx-4">
-      {#each filteredPlants as name}
+    <ul class="mx-4 my-4">
+      {#each filteredPlants as plant, index}
         <li
-          class:active={hiLitedPlant === name}
-          class="active:bg-black"
-          on:click={() => navigate(name)}
+          class={`py-1 rounded-lg ${hiLitedPlant.name === plant.name ? 'bg-black text-white' : ''}`}
+          on:mouseenter={() => hiLiteIndex = index}
+          on:click={() => navigate(hiLitedPlant.name)}
+          on:keydown={navigateList}
         >
-          {name}
+          <p class="mx-2">{plant.name}</p>
         </li>
       {/each}			
     </ul>

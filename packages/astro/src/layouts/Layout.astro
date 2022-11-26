@@ -1,11 +1,14 @@
 ---
 import DesktopNavigation from '../components/DesktopNavigation.svelte';
+// import { getSearchCollection } from '../api';
 
 export interface Props {
   title: string;
 }
 
 const { title } = Astro.props;
+
+// const searchList = await getSearchCollection();
 ---
 
 <!DOCTYPE html>
