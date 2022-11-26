@@ -15,7 +15,7 @@
   }
 </script>
 
-<header class="flex justify-between items-center my-4 mx-8">
+<header class="flex justify-between items-center my-4 mx-8" aria-controls="navbar">
   <div>
     <a href="/" class="">
       <h1 class="font-serif font-black text-4xl">alto</h1>
@@ -24,15 +24,13 @@
   <div class="flex">
     <h1
       id="desktop-plant-nav"
-      class="cursor-default font-serif font-black text-4xl mr-6 rounded-lg
-      focus:outline-none focus:ring-4 focus:ring-byz focus:ring-offset-4 focus:ring-offset-transparent"
+      class="cursor-default font-serif font-black text-4xl mr-6 rounded-lg"
     >
       plants
     </h1>
     <h1
       id="desktop-learn-nav"
-      class="cursor-default font-serif font-black text-4xl mr-6 rounded-lg
-      focus:outline-none focus:ring-4 focus:ring-byz focus:ring-offset-4 focus:ring-offset-transparent"
+      class="cursor-default font-serif font-black text-4xl mr-6 rounded-lg"
     >
       learn
     </h1>
@@ -46,10 +44,9 @@
   </div>
   <NavigationPopover aria-label="Plant Links" triggeredBy="#desktop-plant-nav">
     <div class="flex flex-col bg-white p-4 rounded-lg drop-shadow-lg opacity-95">
-      {#each plantsNavContent as link, index}
+      {#each plantsNavContent as link}
         <a
           href={link.href}
-          tabindex={index} 
           class="font-serif font-black text-xl hover:underline dark:text-black"
         >
         {link.title}
@@ -59,10 +56,9 @@
   </NavigationPopover>
   <NavigationPopover aria-label="Learn Links" triggeredBy="#desktop-learn-nav">
     <div class="flex flex-col bg-white p-4 rounded-lg drop-shadow-lg opacity-95">
-      {#each learnNavContent as link, index}
+      {#each learnNavContent as link}
         <a
           href={link.href}
-          tabindex={index} 
           class="font-serif font-black text-xl hover:underline dark:text-black"
         >
           {link.title}
