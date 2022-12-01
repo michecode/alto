@@ -1,7 +1,7 @@
-declare module '*.svg' {
-  const content: string;
-  export default content;
-}
+// declare module '*.svg' {
+//   const content: string;
+//   export default content;
+// }
 
 declare interface Plant {
   name: string;
@@ -40,7 +40,7 @@ declare interface Plant {
 }
 
 declare interface SearchObject {
-  botanical_name: string;
+  slug: string;
   name: string;
 }
 

@@ -21,7 +21,7 @@ export async function getSearchCollection() {
   data.forEach((plant: Plant) => {
     plant.alternate_names.forEach((name) => {
       searchCollection.push({
-        botanical_name: plant.botanical_name,
+        slug: plant.slug,
         name,
       });
     });

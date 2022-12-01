@@ -9,6 +9,7 @@
       return plant.name.toLowerCase().startsWith(inputValue.toLowerCase());
     })
     filteredPlants = filteredPlants.slice(0,5);
+    console.log('post filter', filteredPlants);
   };
 
   let inputValue: string = "";
@@ -21,10 +22,9 @@
   const navigate = (target: string) => {
     window.location.href = `/plants/${target}`;
   }
-  
-  /* NAVIGATING OVER THE LIST OF COUNTRIES W HIGHLIGHTING */	
+
   let hiLiteIndex: number = -1;
-  $: hiLitedPlant = filteredPlants[hiLiteIndex]; 	
+  $: hiLitedPlant = filteredPlants[hiLiteIndex] ?? { name: '', slug: ''}; 	
 
   const navigateList = (e: KeyboardEvent) => {
     const max = filteredPlants.length-1;
@@ -33,12 +33,11 @@
     } else if (e.key === "ArrowUp") {
       hiLiteIndex === 0 || hiLiteIndex === -1 ? hiLiteIndex = max : hiLiteIndex -= 1;
     } else if (e.key === "Enter") {
-      navigate(filteredPlants[hiLiteIndex].botanical_name);
+      navigate(filteredPlants[hiLiteIndex].slug);
     } else {
       return;
     }
   } 
-  console.log(filteredPlants, plants);
 </script>
 
 <div class="flex flex-col w-3/4 mx-auto mt-8 bg-white rounded-2xl opacity-75 drop-shadow-lg">
@@ -56,14 +55,14 @@
   {#if filteredPlants.length > 0}
     <hr class="mx-4"/>
     <ul class="mx-4 my-4">
-      {#each filteredPlants as plant, index}
+      {#each filteredPlants as {name, slug}, index}
         <li
-          class={`py-1 rounded-lg ${hiLitedPlant.name === plant.name ? 'bg-black text-white' : ''}`}
+          class={`py-1 rounded-lg ${hiLitedPlant.name === name ? 'bg-black text-white' : ''}`}
           on:mouseenter={() => hiLiteIndex = index}
-          on:click={() => navigate(hiLitedPlant.name)}
+          on:click={() => navigate(slug)}
           on:keydown={navigateList}
         >
-          <p class="mx-2">{plant.name}</p>
+          <p class="mx-2">{name}</p>
         </li>
       {/each}			
     </ul>
