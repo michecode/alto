@@ -1,7 +1,10 @@
 import { useSanityClient } from 'astro-sanity';
 
 export async function getAllPlants() {
-  const query = `*[_type == 'plant']`;
+  const query = `*[_type == 'plant']{
+    ...,
+    "imageUrl": image.asset->url
+  }`;
   const data = await useSanityClient().fetch(query);
   return data;
 }

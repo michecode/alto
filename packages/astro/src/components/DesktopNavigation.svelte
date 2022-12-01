@@ -1,7 +1,5 @@
 <script lang="ts">
-  import NavigationPopover from "./NavigationPopover.svelte";
   import Icon from './Icon.svelte';
-  import { plantsNavContent, learnNavContent } from '../utils/constants';
   import { changeTheme, getTheme } from "../utils/utils";
   import colors from '../styles/colors';
 
@@ -18,23 +16,21 @@
 <header class="flex justify-between items-center my-4 mx-8" aria-controls="navbar">
   <div>
     <a href="/" class="">
-      <h1 class="font-serif font-black text-4xl">alto</h1>
+      <h1 class="font-serif font-black text-4xl hover:opacity-80">alto</h1>
     </a>
   </div>
   <div class="flex">
     <h1
-      id="desktop-plant-nav"
-      class="cursor-default font-serif font-black text-4xl mr-6 rounded-lg"
+      class="cursor-default font-serif font-black text-4xl mr-6 rounded-lg hover:opacity-80"
     >
-      plants
+      <a href="plants">plants</a>
     </h1>
     <h1
-      id="desktop-learn-nav"
-      class="cursor-default font-serif font-black text-4xl mr-6 rounded-lg"
+      class="cursor-default font-serif font-black text-4xl mr-6 rounded-lg hover:opacity-80"
     >
-      learn
+      <a href="learn">learn</a>
     </h1>
-    <button on:click={handleTheme}>
+    <button on:click={handleTheme} class="hover:opacity-80">
       {#if isDark}
       <Icon type="thickSun" focusable fill={colors.white}/>
       {:else}
@@ -42,28 +38,4 @@
       {/if}
     </button>
   </div>
-  <NavigationPopover aria-label="Plant Links" triggeredBy="#desktop-plant-nav">
-    <div class="flex flex-col bg-white p-4 rounded-lg drop-shadow-lg opacity-95">
-      {#each plantsNavContent as link}
-        <a
-          href={link.href}
-          class="font-serif font-black text-xl hover:underline dark:text-black"
-        >
-        {link.title}
-        </a>
-      {/each}
-    </div>
-  </NavigationPopover>
-  <NavigationPopover aria-label="Learn Links" triggeredBy="#desktop-learn-nav">
-    <div class="flex flex-col bg-white p-4 rounded-lg drop-shadow-lg opacity-95">
-      {#each learnNavContent as link}
-        <a
-          href={link.href}
-          class="font-serif font-black text-xl hover:underline dark:text-black"
-        >
-          {link.title}
-        </a>
-      {/each}
-    </div>
-  </NavigationPopover>
 </header>

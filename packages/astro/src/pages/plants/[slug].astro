@@ -13,6 +13,33 @@ export async function getStaticPaths() {
 const { plant } = Astro.props;
 ---
 
-<div>
-  {plant.name}
-</div>
+<article class="flex">
+  <!-- Left Column -->
+  <div class="w-2/5 flex flex-col">
+    <img src={`${plant.imageUrl}?w=1600&h=1200&fm=webp`} />
+  </div>
+  <!-- Right Column -->
+  <div>
+    <!-- Desktop Nav Here -->
+    <div></div>
+    <!-- Summary -->
+    <section>{plant.summary}</section>
+    <h1>Light</h1>
+    <section>{plant.light}</section>
+    <h1>Water</h1>
+    <section>{plant.water}</section>
+    <h1>Fertilizing</h1>
+    <section>{plant.fertilizing}</section>
+    <h1>Humidity</h1>
+    <section>{plant.humidity}</section>
+    <h1>Pests</h1>
+    <section>{plant.pests}</section>
+    <h1>Pruning</h1>
+    <section>{plant.pruning}</section>
+    <h1>Propagation</h1>
+    <section>{plant.propagation}</section>
+    <h1>Repotting</h1>
+    <section>{plant.repotting}</section>
+  </div>
+  <!-- Mobile Nav Float Here -->
+</article>

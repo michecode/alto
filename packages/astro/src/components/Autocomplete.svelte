@@ -40,7 +40,7 @@
   } 
 </script>
 
-<div class="flex flex-col w-3/4 mx-auto mt-8 bg-white rounded-2xl opacity-75 drop-shadow-lg">
+<div class="flex flex-col w-3/4 mx-auto mt-8 bg-white text-black rounded-2xl opacity-75 drop-shadow-lg">
   <div class="flex">
     <input
       type="text" 
