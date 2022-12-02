@@ -6,6 +6,7 @@
 declare interface Plant {
   name: string;
   slug: string;
+  imageUrl: string;
   alternate_names: string[];
   botanical_name: string;
   class_peek: string;

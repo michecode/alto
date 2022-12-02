@@ -1,5 +1,9 @@
 ---
+import PlantLayout from '../../layouts/PlantLayout.astro';
+import PlantNavigation from '../../components/PlantNavigation.svelte';
+import PlantSection from '../../components/plant/PlantSection.svelte';
 import { getAllPlants } from '../../api';
+import QuickCard from '../../components/plant/QuickCard.svelte';
 
 export async function getStaticPaths() {
   const allPlants = await getAllPlants();
@@ -10,36 +14,99 @@ export async function getStaticPaths() {
   }));
 }
 
-const { plant } = Astro.props;
+const plant: Plant = Astro.props.plant;
+
+const cardProps = {
+  title: plant.name,
+  botanical: plant.botanical_name,
+  difficulty: plant.difficulty_peek,
+  light: plant.light_peek,
+  water: plant.water_peek,
+};
 ---
 
-<article class="flex">
-  <!-- Left Column -->
-  <div class="w-2/5 flex flex-col">
-    <img src={`${plant.imageUrl}?w=1600&h=1200&fm=webp`} />
-  </div>
-  <!-- Right Column -->
-  <div>
-    <!-- Desktop Nav Here -->
-    <div></div>
-    <!-- Summary -->
-    <section>{plant.summary}</section>
-    <h1>Light</h1>
-    <section>{plant.light}</section>
-    <h1>Water</h1>
-    <section>{plant.water}</section>
-    <h1>Fertilizing</h1>
-    <section>{plant.fertilizing}</section>
-    <h1>Humidity</h1>
-    <section>{plant.humidity}</section>
-    <h1>Pests</h1>
-    <section>{plant.pests}</section>
-    <h1>Pruning</h1>
-    <section>{plant.pruning}</section>
-    <h1>Propagation</h1>
-    <section>{plant.propagation}</section>
-    <h1>Repotting</h1>
-    <section>{plant.repotting}</section>
-  </div>
-  <!-- Mobile Nav Float Here -->
-</article>
+<PlantLayout
+  title={plant.name}
+  imageUrl={`${plant.imageUrl}?w=1600&h=1200&fm=webp`}
+>
+  <article class="flex">
+    <!-- Left Column -->
+    <div class="shrink-0 w-1/4 flex flex-col mr-4">
+      <div class="sticky top-0">
+        <img
+          src={`${plant.imageUrl}?w=1600&h=1200&fm=webp`}
+          class="mb-4 mt-4"
+        />
+        <QuickCard {...cardProps} />
+      </div>
+    </div>
+    <!-- Right Column -->
+    <div class="">
+      <!-- Desktop Nav Here -->
+      <PlantNavigation
+        placeholder={plant.name}
+        client:media="(min-width:1024px)"
+      />
+      <div></div>
+      <!-- Summary -->
+      <PlantSection title="About" body={plant.summary} />
+      <PlantSection title="Light" body={plant.light} />
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Malesuada
+        pellentesque elit eget gravida cum sociis natoque penatibus et. Cursus
+        turpis massa tincidunt dui ut. Habitasse platea dictumst quisque
+        sagittis purus sit amet volutpat consequat. Sodales ut eu sem integer
+        vitae justo eget magna. Faucibus in ornare quam viverra orci sagittis.
+        Nibh cras pulvinar mattis nunc sed blandit libero. Nunc eget lorem dolor
+        sed viverra ipsum nunc aliquet bibendum. Ullamcorper morbi tincidunt
+        ornare massa eget. Non blandit massa enim nec dui nunc mattis enim.
+        Elementum integer enim neque volutpat ac tincidunt vitae semper.
+        Tristique sollicitudin nibh sit amet commodo nulla facilisi nullam.
+        Imperdiet sed euismod nisi porta. Eu scelerisque felis imperdiet proin
+        fermentum leo vel orci. Nisl vel pretium lectus quam id. Consequat nisl
+        vel pretium lectus quam id leo in.
+      </p>
+      <PlantSection title="Water" body={plant.water} />
+      <PlantSection title="Fertilizing" body={plant.fertilizing} />
+      <PlantSection title="Humidity" body={plant.humidity} />
+      <PlantSection title="Pests" body={plant.pests} />
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Malesuada
+        pellentesque elit eget gravida cum sociis natoque penatibus et. Cursus
+        turpis massa tincidunt dui ut. Habitasse platea dictumst quisque
+        sagittis purus sit amet volutpat consequat. Sodales ut eu sem integer
+        vitae justo eget magna. Faucibus in ornare quam viverra orci sagittis.
+        Nibh cras pulvinar mattis nunc sed blandit libero. Nunc eget lorem dolor
+        sed viverra ipsum nunc aliquet bibendum. Ullamcorper morbi tincidunt
+        ornare massa eget. Non blandit massa enim nec dui nunc mattis enim.
+        Elementum integer enim neque volutpat ac tincidunt vitae semper.
+        Tristique sollicitudin nibh sit amet commodo nulla facilisi nullam.
+        Imperdiet sed euismod nisi porta. Eu scelerisque felis imperdiet proin
+        fermentum leo vel orci. Nisl vel pretium lectus quam id. Consequat nisl
+        vel pretium lectus quam id leo in.
+      </p>
+      <PlantSection title="Pruning" body={plant.pruning} />
+      <PlantSection title="Propagation" body={plant.propagation} />
+      <PlantSection title="Repotting" body={plant.repotting} />
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Malesuada
+        pellentesque elit eget gravida cum sociis natoque penatibus et. Cursus
+        turpis massa tincidunt dui ut. Habitasse platea dictumst quisque
+        sagittis purus sit amet volutpat consequat. Sodales ut eu sem integer
+        vitae justo eget magna. Faucibus in ornare quam viverra orci sagittis.
+        Nibh cras pulvinar mattis nunc sed blandit libero. Nunc eget lorem dolor
+        sed viverra ipsum nunc aliquet bibendum. Ullamcorper morbi tincidunt
+        ornare massa eget. Non blandit massa enim nec dui nunc mattis enim.
+        Elementum integer enim neque volutpat ac tincidunt vitae semper.
+        Tristique sollicitudin nibh sit amet commodo nulla facilisi nullam.
+        Imperdiet sed euismod nisi porta. Eu scelerisque felis imperdiet proin
+        fermentum leo vel orci. Nisl vel pretium lectus quam id. Consequat nisl
+        vel pretium lectus quam id leo in.
+      </p>
+    </div>
+    <!-- Mobile Nav Float Here -->
+  </article>
+</PlantLayout>

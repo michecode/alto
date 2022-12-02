@@ -13,3 +13,11 @@ export const changeTheme = () => {
 export const getTheme = () => {
   return localStorage.getItem('theme') ?? 'light';
 };
+
+export const isDarkMode = () => {
+  return localStorage.getItem('theme') === 'dark';
+};
+
+export const isMacLike = () => {
+  return /(Mac|iPhone|iPod|iPad)/i.test(navigator.platform);
+};

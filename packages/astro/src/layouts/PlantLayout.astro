@@ -1,14 +1,10 @@
 ---
-import HomeNavigation from '../components/HomeNavigation.svelte';
-// import { getSearchCollection } from '../api';
-
 export interface Props {
   title: string;
+  imageUrl: string;
 }
 
-const { title } = Astro.props;
-
-// const searchList = await getSearchCollection();
+const { title, imageUrl } = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -18,10 +14,10 @@ const { title } = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
+    <meta property="og:image" content={imageUrl} />
     <title>{title}</title>
   </head>
-  <body class="bg-offwhite dark:bg-eerie text-byz dark:text-white">
-    <HomeNavigation client:media="(min-width: 1024px)" />
+  <body class="bg-offwhite dark:bg-eerie text-byz dark:text-white mx-24">
     <slot />
   </body>
 </html>
