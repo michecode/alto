@@ -1,4 +1,4 @@
-<!-- Modified version of https://github.com/themesberg/flowbite-svelte/blob/main/src/lib/utils/Popper.svelte -->
+<!-- Modified version of https://github.com/themesberg/flowbite-svelte/blob/main/src/lib/utils/Popper.svelte
 <script lang="ts">
   import { onMount } from 'svelte';
   import { createPopper, type Rect } from '@popperjs/core';
@@ -170,4 +170,4 @@
     <slot />
     {#if arrow}<div data-popper-arrow class="tooltip-arrow" />{/if}
   </Frame>
-{/if}
+{/if} -->

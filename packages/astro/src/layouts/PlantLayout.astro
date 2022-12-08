@@ -17,7 +17,9 @@ const { title, imageUrl } = Astro.props;
     <meta property="og:image" content={imageUrl} />
     <title>{title}</title>
   </head>
-  <body class="bg-offwhite dark:bg-eerie text-byz dark:text-white mx-24">
+  <body
+    class="bg-offwhite dark:bg-eerie text-byz dark:text-white mx-6 lg:mx-24"
+  >
     <slot />
   </body>
 </html>

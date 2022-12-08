@@ -1,6 +1,6 @@
 ---
 import PlantLayout from '../../layouts/PlantLayout.astro';
-import PlantNavigation from '../../components/PlantNavigation.svelte';
+import PlantNavigation from '../../components/navigation/PlantNavigation.svelte';
 import PlantSection from '../../components/plant/PlantSection.svelte';
 import { getAllPlants } from '../../api';
 import QuickCard from '../../components/plant/QuickCard.svelte';
@@ -29,24 +29,18 @@ const cardProps = {
   title={plant.name}
   imageUrl={`${plant.imageUrl}?w=1600&h=1200&fm=webp`}
 >
-  <article class="flex">
+  <article class="flex flex-col lg:flex-row mt-12 lg:mt-0">
     <!-- Left Column -->
-    <div class="shrink-0 w-1/4 flex flex-col mr-4">
-      <div class="sticky top-0">
-        <img
-          src={`${plant.imageUrl}?w=1600&h=1200&fm=webp`}
-          class="mb-4 mt-4"
-        />
+    <div class="lg:shrink-0 lg:w-1/4 flex flex-col lg:mr-4">
+      <div class="lg:sticky lg:top-0">
+        <img src={`${plant.imageUrl}?w=1600&h=1200&fm=webp`} class="my-4" />
         <QuickCard {...cardProps} />
       </div>
     </div>
     <!-- Right Column -->
     <div class="">
       <!-- Desktop Nav Here -->
-      <PlantNavigation
-        placeholder={plant.name}
-        client:media="(min-width:1024px)"
-      />
+      <PlantNavigation placeholder={plant.name} client:load />
       <div></div>
       <!-- Summary -->
       <PlantSection title="About" body={plant.summary} />

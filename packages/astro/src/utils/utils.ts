@@ -1,4 +1,4 @@
-export const changeTheme = () => {
+export const toggleTheme = () => {
   const theme = localStorage.getItem('theme') ?? 'light';
 
   if (theme === 'light') {

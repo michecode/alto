@@ -1,8 +1,12 @@
 <script lang="ts">
-  import { isMacLike } from '../utils/utils';
+  import { isMacLike } from '../../utils/utils';
   import TargetMenu from './TargetMenu.svelte';
 
   export let placeholder = 'Current Plant';
+  let isMac = false;
+  if (typeof navigator !== 'undefined') {
+    isMac = isMacLike();
+  }
 
   const handleKeyboard = (e: KeyboardEvent) => {
     // Works for all systems.
@@ -15,15 +19,15 @@
         e.stopPropagation();
         e.preventDefault();
       }
-    } else {
-      console.log('yas');
     }
   };
 </script>
 
 <svelte:window on:keydown={handleKeyboard} />
 
-<div class="flex w-full pt-4 mb-4 bg-offwhite dark:bg-eerie dark:text-black">
+<div
+  class="hidden lg:flex w-full pt-4 mb-4 bg-offwhite dark:bg-eerie dark:text-black"
+>
   <div
     class="flex items-center justify-between bg-white opacity-75 drop-shadow-lg rounded-3xl flex-grow
     hover:opacity-100 hover:cursor-pointer"
@@ -32,8 +36,27 @@
     <h1
       class="border-black border-[1px] rounded-md p-1 my-2 mx-5 text-xs drop-shadow-lg"
     >
-      &#8984;K
+      <div class="inline-flex">
+        {#if isMac}
+          <p>&#8984;</p>
+        {:else}
+          <p>CTRL&nbsp;</p>
+        {/if}
+        K
+      </div>
     </h1>
+  </div>
+  <TargetMenu />
+</div>
+
+<!-- Mobile Sticky Version -->
+<div
+  class="fixed top-0 left-0 flex lg:hidden w-full mt-4 px-4 bg-offwhite dark:bg-eerie dark:text-black"
+>
+  <div
+    class="flex items-center justify-between bg-white opacity-75 drop-shadow-lg rounded-3xl flex-grow"
+  >
+    <h1 class="px-4 font-serif font-black text-md">Quick Search</h1>
   </div>
   <TargetMenu />
 </div>

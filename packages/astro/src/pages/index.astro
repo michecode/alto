@@ -29,10 +29,7 @@ const searchCollection = await getSearchCollection();
       <h3 class="text-6xl opacity-75 font-serif font-black text-center">
         Your Grow Guide for Every Green
       </h3>
-      <Autocomplete
-        client:media="(min-width: 1024px)"
-        plants={searchCollection}
-      />
+      <Autocomplete client:load plants={searchCollection} />
     </div>
   </Layout>
 </svelte:fragment>

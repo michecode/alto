@@ -1,5 +1,5 @@
 ---
-import HomeNavigation from '../components/HomeNavigation.svelte';
+import HomeNavigation from '../components/navigation/HomeNavigation.svelte';
 // import { getSearchCollection } from '../api';
 
 export interface Props {
@@ -21,7 +21,7 @@ const { title } = Astro.props;
     <title>{title}</title>
   </head>
   <body class="bg-offwhite dark:bg-eerie text-byz dark:text-white">
-    <HomeNavigation client:media="(min-width: 1024px)" />
+    <HomeNavigation client:load />
     <slot />
   </body>
 </html>
