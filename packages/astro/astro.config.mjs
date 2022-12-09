@@ -7,6 +7,7 @@ import sanity from 'astro-sanity';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
+  site: 'https://altov2.pages.dev',
   integrations: [
     svelte(),
     tailwind(),
