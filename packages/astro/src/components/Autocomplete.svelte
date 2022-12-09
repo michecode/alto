@@ -7,7 +7,7 @@
   let filteredPlants: SearchObject[] = [];
   let inputValue: string = '';
   let hiLiteIndex: number = -1;
-  let mobileSearchScreen = true;
+  let mobileSearchScreen = false;
 
   $: if (!inputValue) {
     filteredPlants = [];
