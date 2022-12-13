@@ -10,6 +10,7 @@
   src: url('/fonts/Recoleta-Regular.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -17,6 +18,7 @@
   src: url('/fonts/Recoleta-Black.woff2') format('woff2');
   font-weight: 900;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -24,6 +26,7 @@
   src: url('/fonts/Recoleta-Bold.woff2') format('woff2');
   font-weight: 700 800;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -31,6 +34,7 @@
   src: url('/fonts/Recoleta-SemiBold.woff2') format('woff2');
   font-weight: 600;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -38,6 +42,7 @@
   src: url('/fonts/Recoleta-Medium.woff2') format('woff2');
   font-weight: 500;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -45,6 +50,7 @@
   src: url('/fonts/Recoleta-Light.woff2') format('woff2');
   font-weight: 300;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -52,6 +58,7 @@
   src: url('/fonts/Recoleta-Thin.woff2') format('woff2');
   font-weight: 200 100;
   font-style: normal;
+  font-display: swap;
 }
 
 /* HELVETICA */
@@ -60,6 +67,7 @@
   src: url('/fonts/Helvetica.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -67,6 +75,7 @@
   src: url('/fonts/Helvetica-Oblique.woff2') format('woff2');
   font-weight: normal;
   font-style: italic;
+  font-display: swap;
 }
 
 @font-face {
@@ -74,6 +83,7 @@
   src: url('/fonts/Helvetica-Bold.woff2') format('woff2');
   font-weight: bold 500 600 700 800 900;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -81,6 +91,7 @@
   src: url('/fonts/Helvetica-BoldOblique.woff2') format('woff2');
   font-weight: bold 500 600 700 800 900;
   font-style: italic;
+  font-display: swap;
 }
 
 @font-face {
@@ -88,6 +99,7 @@
   src: url('/fonts/Helvetica-Light.woff2') format('woff2');
   font-weight: 300 200 100;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -95,4 +107,5 @@
   src: url('/fonts/Helvetica-LightOblique.woff2') format('woff2');
   font-weight: 300 200 100;
   font-style: italic;
+  font-display: swap;
 }
