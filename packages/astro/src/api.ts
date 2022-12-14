@@ -5,7 +5,7 @@ export async function getAllPlants() {
     ...,
     "imageUrl": image.asset->url
   }`;
-  const data = await useSanityClient().fetch(query);
+  const data: Plant[] = await useSanityClient().fetch(query);
   return data;
 }
 
