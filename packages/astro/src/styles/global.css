@@ -56,7 +56,7 @@
 @font-face {
   font-family: 'Recoleta';
   src: url('/fonts/Recoleta-Thin.woff2') format('woff2');
-  font-weight: 200 100;
+  font-weight: 100 200;
   font-style: normal;
   font-display: swap;
 }
@@ -81,7 +81,7 @@
 @font-face {
   font-family: 'Helvetica';
   src: url('/fonts/Helvetica-Bold.woff2') format('woff2');
-  font-weight: bold 500 600 700 800 900;
+  font-weight: 700 900;
   font-style: normal;
   font-display: swap;
 }
@@ -89,7 +89,7 @@
 @font-face {
   font-family: 'Helvetica';
   src: url('/fonts/Helvetica-BoldOblique.woff2') format('woff2');
-  font-weight: bold 500 600 700 800 900;
+  font-weight: 700 900;
   font-style: italic;
   font-display: swap;
 }
@@ -97,7 +97,7 @@
 @font-face {
   font-family: 'Helvetica';
   src: url('/fonts/Helvetica-Light.woff2') format('woff2');
-  font-weight: 300 200 100;
+  font-weight: 100 300;
   font-style: normal;
   font-display: swap;
 }
@@ -105,7 +105,7 @@
 @font-face {
   font-family: 'Helvetica';
   src: url('/fonts/Helvetica-LightOblique.woff2') format('woff2');
-  font-weight: 300 200 100;
+  font-weight: 100 300;
   font-style: italic;
   font-display: swap;
 }
