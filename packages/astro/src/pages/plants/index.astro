@@ -1,9 +1,10 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import FilterBar from '../../components/FilterBar.svelte';
-// import { getAllPlants } from '../../api';
+import PlantGrid from '../../components/PlantGrid.svelte';
+import { getAllPlants } from '../../api';
 
-// const plants = await getAllPlants();
+const plants = await getAllPlants();
 ---
 
 <Layout title="All Plants">
@@ -11,8 +12,8 @@ import FilterBar from '../../components/FilterBar.svelte';
     <div
       class="sticky top-0 w-1/6 h-[89.5vh] bg-white opacity-80 drop-shadow-lg rounded-2xl"
     >
-      <FilterBar />
+      <FilterBar client:load />
     </div>
-    <div class="flex-grow ml-4">right col</div>
+    <div class="flex-grow ml-4"><PlantGrid plants={plants} /></div>
   </main>
 </Layout>
