@@ -20,8 +20,20 @@
       rect.left <= e.clientX &&
       e.clientX <= rect.left + rect.width;
 
-    console.log(clickedInDialog);
     if (clickedInDialog === false) (eventTarget as HTMLDialogElement).close();
+  };
+
+  const handleClose = () => {
+    const dialogEl = document.getElementById(
+      'search-modal',
+    ) as HTMLDialogElement | null;
+    if (!dialogEl) {
+      console.error(
+        'SearchModal: Failed to get dialog element, cannot handle close',
+      );
+      return;
+    }
+    dialogEl.close();
   };
 </script>
 
@@ -39,6 +51,7 @@
       placeholder="Search for Plants"
       class="w-full p-4 rounded-2xl flex-grow focus:outline-none"
     />
-    <button class="border-black border-solid">ESC</button>
+    <button class="border-black border-solid" on:click={handleClose}>ESC</button
+    >
   </div>
 </dialog>
