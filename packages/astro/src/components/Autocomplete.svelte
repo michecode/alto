@@ -2,11 +2,11 @@
   import Icon from './Icon.svelte';
   import colors from '../styles/colors';
 
-  export let plants: SearchCollection = [];
+  export let plants = [] as SearchCollection;
 
-  let filteredPlants: SearchObject[] = [];
-  let inputValue: string = '';
-  let hiLiteIndex: number = -1;
+  let filteredPlants = [] as SearchCollection;
+  let inputValue = '';
+  let hiLiteIndex = -1;
   let mobileSearchScreen = false;
 
   $: if (!inputValue) {
@@ -18,7 +18,7 @@
   const filterPlants = (_: Event | null, endIndex: number = 5) => {
     if (!inputValue) return;
     filteredPlants = plants.filter((plant) => {
-      return plant.name.toLowerCase().startsWith(inputValue.toLowerCase());
+      return plant.name.toLowerCase().includes(inputValue.toLowerCase());
     });
     filteredPlants = filteredPlants.slice(0, endIndex);
   };
@@ -74,7 +74,7 @@
   <!-- FILTERED LIST -->
   {#if filteredPlants.length > 0}
     <hr class="mx-4" />
-    <ul class="mx-4 my-4">
+    <ul class="m-4">
       {#each filteredPlants as { name, slug }, index}
         <li
           class={`py-1 rounded-lg ${
@@ -117,7 +117,7 @@
     </div>
     <hr />
     {#if filteredPlants.length > 0}
-      <ul class="mx-4 my-4">
+      <ul class="m-4">
         {#each filteredPlants as { name, slug }, index}
           <li
             class={`py-1 rounded-lg ${

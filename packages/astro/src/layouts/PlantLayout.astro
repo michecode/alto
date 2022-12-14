@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import SearchModal from '../components/navigation/SearchModal.svelte';
+import { getSearchCollection } from '../api';
 
 export interface Props {
   title: string;
@@ -8,6 +9,7 @@ export interface Props {
 }
 
 const { title, imageUrl } = Astro.props;
+const searchCollection = await getSearchCollection();
 ---
 
 <!DOCTYPE html>
@@ -23,7 +25,7 @@ const { title, imageUrl } = Astro.props;
   <body
     class="bg-offwhite dark:bg-eerie text-byz dark:text-white mx-6 lg:mx-24"
   >
-    <SearchModal client:idle />
+    <SearchModal client:idle plants={searchCollection} />
     <slot />
   </body>
 </html>
