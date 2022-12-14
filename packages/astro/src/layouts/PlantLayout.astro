@@ -23,7 +23,7 @@ const { title, imageUrl } = Astro.props;
   <body
     class="bg-offwhite dark:bg-eerie text-byz dark:text-white mx-6 lg:mx-24"
   >
-    <SearchModal />
+    <SearchModal client:idle />
     <slot />
   </body>
 </html>
