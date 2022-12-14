@@ -1,7 +1,18 @@
 ---
+import Layout from '../../layouts/Layout.astro';
+import FilterBar from '../../components/FilterBar.svelte';
 // import { getAllPlants } from '../../api';
 
 // const plants = await getAllPlants();
 ---
 
-<div>hey bitch.</div>
+<Layout title="All Plants">
+  <main class="flex mx-4">
+    <div
+      class="sticky top-0 w-1/6 h-[89.5vh] bg-white opacity-80 drop-shadow-lg rounded-2xl"
+    >
+      <FilterBar />
+    </div>
+    <div class="flex-grow ml-4">right col</div>
+  </main>
+</Layout>
