@@ -13,13 +13,24 @@
     if (e.key === 'k' && e.ctrlKey) {
       e.stopPropagation();
       e.preventDefault();
+      openModal();
       // Check macOS
     } else if (isMacLike()) {
       if (e.key === 'k' && e.metaKey) {
         e.stopPropagation();
         e.preventDefault();
+        openModal();
       }
     }
+  };
+
+  const openModal = () => {
+    const dialogEl: HTMLElement | null =
+      document.getElementById('search-modal');
+    if (!dialogEl) {
+      return;
+    }
+    (dialogEl as HTMLDialogElement).showModal();
   };
 </script>
 
@@ -28,9 +39,10 @@
 <div
   class="hidden lg:flex w-full pt-4 mb-4 bg-offwhite dark:bg-eerie dark:text-black"
 >
-  <div
+  <button
     class="flex items-center justify-between bg-white opacity-75 drop-shadow-lg rounded-3xl flex-grow
     hover:opacity-100 hover:cursor-pointer"
+    on:click={openModal}
   >
     <h1 class="px-4 font-serif font-black text-md">{placeholder}</h1>
     <h1
@@ -45,7 +57,7 @@
         K
       </div>
     </h1>
-  </div>
+  </button>
   <TargetMenu />
 </div>
 
@@ -53,10 +65,11 @@
 <div
   class="fixed top-0 left-0 flex lg:hidden w-full mt-4 px-4 bg-offwhite dark:bg-eerie dark:text-black"
 >
-  <div
+  <button
     class="flex items-center justify-between bg-white opacity-75 drop-shadow-lg rounded-3xl flex-grow"
+    on:click={openModal}
   >
     <h1 class="px-4 font-serif font-black text-md">Quick Search</h1>
-  </div>
+  </button>
   <TargetMenu />
 </div>
