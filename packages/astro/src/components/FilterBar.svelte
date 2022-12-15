@@ -4,12 +4,12 @@
   const clearFilters = () => {
     $filters = {
       classification: {
-        palms: false,
-        succulents: false,
-        cacti: false,
+        palm: false,
+        succulent: false,
+        cactus: false,
         calathea: false,
-        trees: false,
-        orchids: false,
+        tree: false,
+        orchid: false,
       },
       difficulty: 'All',
       light: {
@@ -36,18 +36,18 @@
     <h3 class="">Classification</h3>
     <div class="grid grid-cols-2 font-sans text-base">
       <label>
-        <input type="checkbox" bind:checked={$filters.classification.palms} />
+        <input type="checkbox" bind:checked={$filters.classification.palm} />
         Palms
       </label>
       <label>
         <input
           type="checkbox"
-          bind:checked={$filters.classification.succulents}
+          bind:checked={$filters.classification.succulent}
         />
         Succulents
       </label>
       <label>
-        <input type="checkbox" bind:checked={$filters.classification.cacti} />
+        <input type="checkbox" bind:checked={$filters.classification.cactus} />
         Cacti
       </label>
       <label>
@@ -58,11 +58,11 @@
         Calathea
       </label>
       <label>
-        <input type="checkbox" bind:checked={$filters.classification.trees} />
+        <input type="checkbox" bind:checked={$filters.classification.tree} />
         Trees
       </label>
       <label>
-        <input type="checkbox" bind:checked={$filters.classification.orchids} />
+        <input type="checkbox" bind:checked={$filters.classification.orchid} />
         Orchids
       </label>
     </div>

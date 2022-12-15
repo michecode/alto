@@ -1,7 +1,7 @@
 <script lang="ts">
   export let title = 'Plant Title';
   export let botanical = 'Botanical Name';
-  export let difficulty = 5;
+  export let difficulty = 'IDK';
   export let light = 5;
   export let water = 5;
 </script>

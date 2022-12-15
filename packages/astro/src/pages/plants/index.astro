@@ -14,6 +14,6 @@ const plants = await getAllPlants();
     >
       <FilterBar client:load />
     </div>
-    <div class="flex-grow ml-4"><PlantGrid plants={plants} /></div>
+    <div class="flex-grow ml-4"><PlantGrid plants={plants} client:load /></div>
   </main>
 </Layout>

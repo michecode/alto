@@ -10,7 +10,7 @@ declare interface Plant {
   alternate_names: string[];
   botanical_name: string;
   class_peek: string;
-  difficulty_peek: number;
+  difficulty: string;
   light_peek: number;
   water_peek: number;
   toxic_peek: boolean;
@@ -46,3 +46,33 @@ declare interface SearchObject {
 }
 
 declare type SearchCollection = SearchObject[];
+
+declare interface Filters {
+  [key: string]: Object | string;
+  classification: {
+    [key: string]: boolean;
+    palm: boolean;
+    succulent: boolean;
+    cactus: boolean;
+    calathea: boolean;
+    tree: boolean;
+    orchid: boolean;
+  };
+  difficulty: string;
+  light: {
+    [key: string]: boolean;
+    low: boolean;
+    indirect: boolean;
+    direct: boolean;
+  };
+  water: {
+    [key: string]: boolean;
+    dry: boolean;
+    balanced: boolean;
+    wet: boolean;
+  };
+  toxic: {
+    [key: string]: boolean;
+    petFriendly: boolean;
+  };
+}

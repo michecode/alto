@@ -2,12 +2,12 @@ import { writable } from 'svelte/store';
 
 export const filters = writable({
   classification: {
-    palms: false,
-    succulents: false,
-    cacti: false,
+    palm: false,
+    succulent: false,
+    cactus: false,
     calathea: false,
-    trees: false,
-    orchids: false,
+    tree: false,
+    orchid: false,
   },
   difficulty: 'All',
   light: {
@@ -23,4 +23,4 @@ export const filters = writable({
   toxic: {
     petFriendly: false,
   },
-});
+} as Filters);
