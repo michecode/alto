@@ -77,3 +77,29 @@ declare interface Filters {
     petFriendly: boolean;
   };
 }
+
+declare interface Article {
+  category: string;
+  intro: string;
+  image: {
+    _type: string;
+    asset: {
+      _ref: string;
+      _type: string;
+    };
+  };
+  sections: ArticleSection[];
+}
+
+declare interface ArticleSection {
+  header: string;
+  imageUrl: string;
+  image: {
+    _type: string;
+    asset: {
+      _ref: string;
+      _type: string;
+    };
+  };
+  body: string;
+}

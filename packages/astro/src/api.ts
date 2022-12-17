@@ -1,5 +1,6 @@
 import { useSanityClient } from 'astro-sanity';
 
+// TODO: When you find a variant, map the variant's base article data into the variant itself
 export async function getAllPlants() {
   const query = `*[_type == 'plant']{
     ...,
@@ -22,7 +23,7 @@ export async function getSearchCollection() {
   // Process
   const searchCollection: SearchCollection = [];
   data.forEach((plant: Plant) => {
-    plant.alternate_names.forEach((name) => {
+    plant.alternateNames.forEach((name) => {
       searchCollection.push({
         slug: plant.slug,
         name,
@@ -30,4 +31,13 @@ export async function getSearchCollection() {
     });
   });
   return searchCollection;
+}
+
+export async function getAllLearnArticles() {
+  const query = `*[_type == 'learnArticle']{
+    ...,
+    "imageUrl": image.asset->url
+  }`;
+  const data: Article[] = await useSanityClient().fetch(query);
+  return data;
 }
