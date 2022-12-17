@@ -24,6 +24,11 @@ export default {
       description: 'Header image that will sit above text akin to a medium article.'
     },
     {
+      name: 'imageAltText',
+      type: 'string',
+      title: 'Alt Text',
+    },
+    {
       name: 'sections',
       type: 'array',
       of: [{type: 'articleSection'}],

@@ -88,12 +88,15 @@ declare interface Article {
       _type: string;
     };
   };
+  imageUrl: string;
+  imageAltText: string;
   sections: ArticleSection[];
 }
 
 declare interface ArticleSection {
   header: string;
   imageUrl: string;
+  imageAltText: string;
   image: {
     _type: string;
     asset: {

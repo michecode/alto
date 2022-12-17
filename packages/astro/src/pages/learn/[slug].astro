@@ -1,5 +1,5 @@
 ---
-import Layout from '../../layouts/Layout.astro';
+import LearnLayout from '../../layouts/LearnLayout.astro';
 import { getAllLearnArticles } from '../../api';
 import Article from '../../components/learn/Article.svelte';
 
@@ -19,7 +19,6 @@ export async function getStaticPaths() {
 const articleData: Article = Astro.props.article;
 ---
 
-<Layout title="test">
-  <div>sidebar nav</div>
+<LearnLayout title="test">
   <Article articleData={articleData} />
-</Layout>
+</LearnLayout>

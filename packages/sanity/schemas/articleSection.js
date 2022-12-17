@@ -14,6 +14,11 @@ export default {
       title: 'Image'
     },
     {
+      name: 'imageAltText',
+      type: 'string',
+      title: 'Image Alt Text',
+    },
+    {
       name: 'body',
       type: 'text',
       title: 'Body',

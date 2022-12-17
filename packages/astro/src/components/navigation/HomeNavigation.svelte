@@ -25,7 +25,7 @@
 </script>
 
 <header
-  class="flex justify-between items-center my-4 mx-8"
+  class="flex justify-between items-center py-4 px-8 sticky top-0 bg-offwhite dark:bg-eerie z-20"
   aria-controls="navbar"
 >
   <div>
@@ -44,12 +44,12 @@
     <h1
       class="cursor-default font-serif font-black text-4xl mr-6 rounded-lg hover:opacity-80"
     >
-      <a href="plants">plants</a>
+      <a href="/plants">plants</a>
     </h1>
     <h1
       class="cursor-default font-serif font-black text-4xl mr-6 rounded-lg hover:opacity-80"
     >
-      <a href="learn">learn</a>
+      <a href="/learn">learn</a>
     </h1>
     <button on:click={handleTheme} class="hover:opacity-80">
       {#if isDark}

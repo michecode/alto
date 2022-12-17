@@ -23,6 +23,14 @@ export async function getSearchCollection() {
   // Process
   const searchCollection: SearchCollection = [];
   data.forEach((plant: Plant) => {
+    searchCollection.push({
+      slug: plant.slug,
+      name: plant.name,
+    });
+    searchCollection.push({
+      slug: plant.slug,
+      name: plant.botanicalName,
+    });
     plant.alternateNames.forEach((name) => {
       searchCollection.push({
         slug: plant.slug,

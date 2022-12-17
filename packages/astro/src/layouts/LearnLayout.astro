@@ -1,6 +1,8 @@
 ---
 import '../styles/global.css';
 import HomeNavigation from '../components/navigation/HomeNavigation.svelte';
+import Sidebar from '../components/learn/Sidebar.svelte';
+import { getAllLearnArticles } from '../api';
 // import { getSearchCollection } from '../api';
 
 export interface Props {
@@ -8,6 +10,8 @@ export interface Props {
 }
 
 const { title } = Astro.props;
+
+const articles: Article[] = await getAllLearnArticles();
 ---
 
 <!DOCTYPE html>
@@ -19,9 +23,18 @@ const { title } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <body class="bg-offwhite dark:bg-eerie text-byz dark:text-white">
+  <body class="bg-offwhite dark:bg-eerie text-byz dark:text-white h-[100vh]">
     <HomeNavigation client:load />
-    <slot />
+    <div class="border-t-2 border-byz dark:border-white">
+      <div class="flex">
+        <div class="min-w-[20%] border-r-2 border-byz dark:border-white">
+          <Sidebar client:idle articles={articles} />
+        </div>
+        <div class="flex-grow">
+          <slot />
+        </div>
+      </div>
+    </div>
   </body>
 </html>
 
