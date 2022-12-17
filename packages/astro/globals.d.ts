@@ -7,15 +7,16 @@ declare interface Plant {
   name: string;
   slug: string;
   imageUrl: string;
-  alternate_names: string[];
-  botanical_name: string;
-  class_peek: string;
+  alternateNames: string[];
+  botanicalName: string;
+  classification: string;
+  variant: boolean;
   difficulty: string;
-  light_peek: number;
-  water_peek: number;
-  toxic_peek: boolean;
-  temp_peek: number[];
-  zone_peek: number[];
+  lightBar: number;
+  waterBar: number;
+  toxicity: boolean;
+  temperatures: number[];
+  zones: number[];
   image: {
     _type: string;
     asset: {

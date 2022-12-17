@@ -12,7 +12,7 @@
     filteredPlants = plants.filter((plant) => {
       // Classification
       // If class isn't selected && theyre not all enabled/disabled then filter
-      if (!filters.classification[plant.class_peek.toLowerCase()]) {
+      if (!filters.classification[plant.classification.toLowerCase()]) {
         const pairs = Object.entries(filters.classification);
         if (checkPairs(pairs)) {
           return false;
@@ -28,7 +28,7 @@
       // TODO: Water
       // Toxic
       if (filters.toxic.petFriendly) {
-        return !plant.toxic_peek;
+        return !plant.toxicity;
       }
       return true;
     });
