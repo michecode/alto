@@ -6,9 +6,9 @@ export default {
   type: 'document',
 	title: 'Plant',
   fieldsets: [
-    {name: 'header-data', title: 'Header'},
-    {name: 'peek-data', title: 'Peek'},
-    {name: 'article-data', title: 'Article'}
+    {name: 'headerData', title: 'Header'},
+    {name: 'peekData', title: 'Peek'},
+    {name: 'articleData', title: 'Article'}
   ],
   fields: [
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -18,101 +18,101 @@ export default {
       name: 'name',
       type: 'string',
       title: 'Name',
-      fieldset: 'header-data'
+      fieldset: 'headerData'
     },
     {
-      name: 'botanical_name',
+      name: 'botanicalName',
       type: 'string',
       title: 'Botanical Name',
-      fieldset: 'header-data'
+      fieldset: 'headerData'
     },
     {
       name: 'slug',
       type: 'string',
       title: 'Slug',
-      fieldset: 'header-data',
+      fieldset: 'headerData',
       description: 'Usually the same as the botanical name but with lowercase and a dash instead of spaces',
     },
     {
       name: 'image',
       type: 'image',
       title: 'Image',
-      fieldset: 'header-data'
+      fieldset: 'headerData'
     },
     {
       name: 'summary',
       type: 'text',
       title: 'Summary',
-      fieldset: 'header-data'
+      fieldset: 'headerData'
     },
     {
       name: 'variant',
-      type: 'string',
+      type: 'boolean',
       title: 'Variant',
-      description: 'This will map a plant variant to another e.g. Ruby Red Ficus to Standard Ficus',
-      fieldset: 'header-data'
+      description: 'If true, this plant is a variant and will fetch the article data from the slug defined above',
+      fieldset: 'headerData'
     },
     {
-      name: 'alternate_names',
+      name: 'alternateNames',
       type: 'array',
       of: [{type: 'string'}],
       title: 'Alternate Names',
-      fieldset: 'header-data'
+      fieldset: 'headerData'
     },
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~
     // PEEK
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~
     {
-      name: 'difficulty_peek',
+      name: 'difficulty',
       type: 'number',
-      title: 'Difficulty Peek',
-      description: 'Range: 1-5',
+      title: 'Difficulty',
+      description: 'Range: 1-5. Number 5 being the hardest',
       initialValue: 1,
-      fieldset: 'peek-data',
+      fieldset: 'peekData',
     },
     {
-      name: 'light_peek',
+      name: 'lightBar',
       type: 'number',
-      title: 'Light Peek',
-      description: 'Range: 1-5',
-      fieldset: 'peek-data',
+      title: 'Light',
+      description: 'Range: 1-5. Number 5 being the most sun thirsty',
+      fieldset: 'peekData',
     },
     {
-      name: 'water_peek',
+      name: 'waterBar',
       type: 'number',
-      title: 'Water Peek',
-      description: 'Range: 1-5',
-      fieldset: 'peek-data',
+      title: 'Water',
+      description: 'Range: 1-5. Number 5 being the most water thirsty',
+      fieldset: 'peekData',
     },
     {
-      name: 'toxic_peek',
+      name: 'toxicity',
       type: 'boolean',
-      title: 'Toxic Peek',
+      title: 'Toxicity',
       description: 'Range: true or false',
-      fieldset: 'peek-data',
+      fieldset: 'peekData',
     },
     {
-      name: 'class_peek',
+      name: 'classification',
       type: 'string',
-      title: 'Classification Peek',
+      title: 'Classification',
       description: 'Possible options: Succulent, Cacti, Calathea, Palm...',
-      fieldset: 'peek-data',
+      fieldset: 'peekData',
     },
     {
-      name: 'zone_peek',
+      name: 'zones',
       type: 'array',
       of: [{type: 'number'}],
       title: 'Zones',
       description: 'Number one is the low value, number two is the high value',
-      fieldset: 'peek-data',
+      fieldset: 'peekData',
     },
     {
-      name: 'temp_peek',
+      name: 'temperatures',
       type: 'array',
       of: [{type: 'number'}],
       title: 'Temperature Range',
       description: 'Number one is the cold value, number two is the hot value',
-      fieldset: 'peek-data',
+      fieldset: 'peekData',
     },
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~
     // ARTICLE
@@ -121,49 +121,49 @@ export default {
       name: 'light',
       type: 'text',
       title: 'Light',
-      fieldset: 'article-data',
+      fieldset: 'articleData',
     },
     {
       name: 'water',
       type: 'text',
       title: 'Water',
-      fieldset: 'article-data',
+      fieldset: 'articleData',
     },
     {
       name: 'humidity',
       type: 'text',
       title: 'Humidity',
-      fieldset: 'article-data',
+      fieldset: 'articleData',
     },
     {
       name: 'fertilizing',
       type: 'text',
       title: 'Fertilizing',
-      fieldset: 'article-data',
+      fieldset: 'articleData',
     },
     {
       name: 'pests',
       type: 'text',
       title: 'Pests',
-      fieldset: 'article-data',
+      fieldset: 'articleData',
     },
     {
       name: 'pruning',
       type: 'text',
       title: 'Pruning',
-      fieldset: 'article-data',
+      fieldset: 'articleData',
     },
     {
       name: 'propagation',
       type: 'text',
       title: 'Propagation',
-      fieldset: 'article-data',
+      fieldset: 'articleData',
     },
     {
       name: 'repotting',
       type: 'text',
       title: 'Repotting',
-      fieldset: 'article-data',
+      fieldset: 'articleData',
     },
   ]
 }

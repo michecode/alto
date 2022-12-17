@@ -28,7 +28,7 @@
       // TODO: Water
       // Toxic
       if (filters.toxic.petFriendly) {
-        return plant.toxic_peek;
+        return !plant.toxic_peek;
       }
       return true;
     });
@@ -42,18 +42,18 @@
   };
 </script>
 
-<div class="grid grid-cols-6">
+<div class="grid grid-cols-6 gap-1">
   {#each filteredPlants as { name, slug, imageUrl }}
     <a href={`/plants/${slug}`}>
-      <div
-        class="bg-white pt-6 pb-4 px-2 drop-shadow-lg rounded-2xl w-full h-64"
-      >
-        <img
-          src={`${imageUrl}?w=800&h=600&fm=webp`}
-          alt={`picture of a ${name}`}
-          class="mx-auto h-48 w-full"
-        />
-        <p class="text-center mt-2 font-serif font-semibold">{name}</p>
+      <div class="bg-white pt-6 pb-4 px-2 drop-shadow-lg rounded-2xl h-64">
+        <div class="h-48">
+          <img
+            src={`${imageUrl}?w=800&h=600&fit=clip&fm=webp`}
+            alt={`picture of a ${name}`}
+            class="mx-auto h-fit w-fit"
+          />
+        </div>
+        <p class="text-center mt-2 font-serif font-semibold h-8">{name}</p>
       </div>
     </a>
   {/each}
