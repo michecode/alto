@@ -10,6 +10,8 @@
   let anchorEl: HTMLElement | null;
   let iconColor = isDark ? colors.black : colors.byz;
 
+  let onHome = false; // is user on homepage?
+
   const handleClick = () => {
     open = !open;
   };
@@ -20,12 +22,15 @@
   };
 
   onMount(() => {
+    if (window.location.href.endsWith('/')) onHome = true;
     anchorEl = document.getElementById('home-menu-button');
   });
 </script>
 
 <header
-  class="flex justify-between items-center py-4 px-8 sticky top-0 bg-offwhite dark:bg-eerie z-20"
+  class={`flex justify-between items-center py-4 px-8 sticky top-0 ${
+    !onHome ? 'bg-offwhite dark:bg-eerie z-20' : ''
+  }`}
   aria-controls="navbar"
 >
   <div>

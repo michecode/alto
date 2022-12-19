@@ -93,7 +93,7 @@
 <!-- MOBILE SEARCH! -->
 {#if mobileSearchScreen}
   <div
-    class="fixed top-0 left-0 px-4 w-full h-full z-20 bg-white flex flex-col"
+    class="fixed top-0 left-0 px-4 w-full h-full z-20 bg-white flex flex-col dark:text-black"
   >
     <div class="flex items-center">
       <input
