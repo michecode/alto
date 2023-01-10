@@ -46,11 +46,11 @@
   {#each filteredPlants as { name, slug, imageUrl }}
     <a href={`/plants/${slug}`}>
       <div class="bg-white pt-6 pb-4 px-2 drop-shadow-lg rounded-2xl h-64">
-        <div class="h-48">
+        <div class="h-48 flex items-end">
           <img
             src={`${imageUrl}?w=800&h=600&fit=clip&fm=webp`}
             alt={`picture of a ${name}`}
-            class="mx-auto h-fit w-fit"
+            class="mx-auto pt-auto max-h-full"
           />
         </div>
         <p class="text-center mt-2 font-serif font-semibold h-8">{name}</p>
