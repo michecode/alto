@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"name": "alto",
+			"path": "../",
+		},
+		{
+			"name": "astro",
+			"path": "../packages/astro",
+		},
+		{
+			"name": "sanity",
+			"path": "../packages/sanity",
+		},
+	],
+	"settings": {}
+}
