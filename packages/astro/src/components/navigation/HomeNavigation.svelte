@@ -54,7 +54,7 @@
     <h1
       class="cursor-default font-serif font-black text-4xl mr-6 rounded-lg hover:opacity-80"
     >
-      <a href="/learn">learn</a>
+      <a href="/learn/light">learn</a>
     </h1>
     <button on:click={handleTheme} class="hover:opacity-80">
       {#if isDark}

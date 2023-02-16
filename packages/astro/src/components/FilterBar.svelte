@@ -30,7 +30,7 @@
 </script>
 
 <div
-  class="flex flex-col h-full mt-2 mx-2 font-serif font-bold text-xl dark:text-black overflow-scroll"
+  class="flex flex-col h-full mt-2 mx-2 font-serif font-bold text-xl dark:text-byz overflow-scroll"
 >
   <div class="my-2">
     <h3 class="">Classification</h3>

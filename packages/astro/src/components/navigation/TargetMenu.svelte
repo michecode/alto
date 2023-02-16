@@ -84,7 +84,10 @@
         </a>
       </li>
       <li role="menuitem" tabindex="-1">
-        <a href="/learn" class="inline-flex items-center hover:opacity-70">
+        <a
+          href="/learn/light"
+          class="inline-flex items-center hover:opacity-70"
+        >
           <Icon type="eye" fill={iconColor} width="24px" height="24px" />
           <p class="ml-1">Learn</p>
         </a>
