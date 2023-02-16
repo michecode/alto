@@ -74,7 +74,7 @@
         </a>
       </li>
       <li>
-        <a href="/learn" class="inline-flex items-center">
+        <a href="/learn/light" class="inline-flex items-center">
           <p class="mr-3">Learn</p>
           <Icon
             type="eye"
