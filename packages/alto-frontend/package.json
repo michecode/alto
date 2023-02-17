@@ -37,6 +37,6 @@
 	"type": "module",
 	"dependencies": {
 		"@sanity/client": "^5.2.1",
-		"@sveltejs/adapter-cloudflare": "^2.0.2"
+		"@sveltejs/adapter-cloudflare": "^1.1.0"
 	}
 }
