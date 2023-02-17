@@ -5,8 +5,8 @@
 			"path": "../",
 		},
 		{
-			"name": "astro",
-			"path": "../packages/astro",
+			"name": "frontend",
+			"path": "../packages/alto-frontend",
 		},
 		{
 			"name": "sanity",
