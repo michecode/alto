@@ -39,8 +39,8 @@
 
 <svelte:window on:keydown={handleKeyboard} />
 
-<header class="mx-6 lg:mx-24 sticky top-0">
-	<div class="hidden lg:flex w-full pt-4 mb-4 bg-offwhite dark:bg-eerie dark:text-black">
+<header class="mx-6 lg:mx-24">
+	<div class="hidden lg:flex w-full pt-4 mb-4 dark:text-black">
 		<a href="/" class="dark:text-white mr-4">
 			<h1 class="font-serif font-black text-4xl hover:opacity-80">alto</h1>
 		</a>
