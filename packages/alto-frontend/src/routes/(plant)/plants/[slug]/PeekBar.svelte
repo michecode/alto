@@ -11,7 +11,9 @@
 
 <div class="flex items-center space-x-2">
 	<Icon type={iconKey} height="32px" width="32px" fill={isDarkMode() ? colors.white : colors.byz} />
-	<div class="bg-white h-8 w-96 rounded-2xl z-10 shadow-xl relative">
-		<div class={`bg-byz h-[75%] w-11/12 rounded-2xl z-20 absolute top-[3px] left-[6px]`} />
+	<div class="bg-byz dark:bg-white h-8 w-96 rounded-2xl z-10 shadow-xl relative">
+		<div
+			class={`bg-white dark:bg-terracotta h-[75%] w-11/12 rounded-2xl z-20 absolute top-[3px] left-[6px]`}
+		/>
 	</div>
 </div>

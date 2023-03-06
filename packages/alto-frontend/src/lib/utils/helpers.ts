@@ -25,3 +25,7 @@ export const isDarkMode = () => {
 export const isMacLike = () => {
 	return /(Mac|iPhone|iPod|iPad)/i.test(navigator.platform);
 };
+
+export const isMobile = () => {
+	return window.screen.width < 1024 ? true : false;
+};

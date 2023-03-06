@@ -21,7 +21,7 @@
 
 <Blob seed={plant.botanicalName} />
 <Splash {plant} />
-<article class="flex flex-col lg:flex-row mt-12 lg:mt-12">
+<article class="flex flex-col lg:flex-row mt-12 px-6 lg:px-24 bg-offwhite dark:bg-eerie">
 	<!-- Left Column -->
 	<div class="lg:shrink-0 lg:w-1/4 flex flex-col lg:mr-4">
 		<div class="lg:sticky lg:top-4">

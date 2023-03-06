@@ -64,11 +64,9 @@
 		<TargetMenu />
 	</div>
 	<!-- Mobile Sticky Version -->
-	<div
-		class="fixed top-0 left-0 flex lg:hidden w-full mt-4 px-4 bg-offwhite dark:bg-eerie dark:text-black"
-	>
+	<div class="fixed top-0 left-0 z-50 flex lg:hidden w-full mt-4 px-4 dark:text-black">
 		<button
-			class="flex items-center justify-between bg-white opacity-75 drop-shadow-lg rounded-3xl flex-grow"
+			class="flex items-center justify-between bg-white drop-shadow-lg rounded-3xl flex-grow"
 			on:click={openModal}
 		>
 			<h1 class="px-4 font-serif font-black text-md">Quick Search</h1>
@@ -76,7 +74,8 @@
 		<TargetMenu />
 	</div>
 </header>
-<main class="mx-6 lg:mx-24">
+<!-- margins are in page -->
+<main class="">
 	<slot />
 </main>
 
