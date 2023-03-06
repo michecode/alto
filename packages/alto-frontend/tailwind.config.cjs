@@ -18,6 +18,7 @@ module.exports = {
 			offwhite: '#FFF8F4',
 			almond: '#ECDCC9',
 			wheat: '#EDD4B2',
+			terracotta: '#d47553',
 			tweed: '#D0A98F',
 			byz: '#4D243D',
 			silver: '#CAC2B5',

@@ -2,17 +2,15 @@
 	import type { PageData } from './$types';
 	import PlantSection from './PlantSection.svelte';
 	import QuickCard from './QuickCard.svelte';
-	import PlantNavigation from './PlantNavigation.svelte';
+	import Blob from './Blob.svelte';
+	import Splash from './Splash.svelte';
 
 	export let data: PageData;
 	const { plant } = data;
 
 	const cardProps = {
 		title: plant.name,
-		botanical: plant.botanicalName,
-		difficulty: plant.difficulty,
-		light: plant.lightBar,
-		water: plant.waterBar
+		botanical: plant.botanicalName
 	};
 </script>
 
@@ -21,15 +19,12 @@
 	<meta property="og:image" content={`${plant.imageUrl}?w=1600&h=1200&fm=webp`} />
 </svelte:head>
 
-<article class="flex flex-col lg:flex-row mt-12 lg:mt-0">
+<Blob seed={plant.botanicalName} />
+<Splash {plant} />
+<article class="flex flex-col lg:flex-row mt-12 px-6 lg:px-24 bg-offwhite dark:bg-eerie">
 	<!-- Left Column -->
 	<div class="lg:shrink-0 lg:w-1/4 flex flex-col lg:mr-4">
-		<div class="lg:sticky lg:top-0">
-			<img
-				src={`${plant.imageUrl}?w=1600&h=1200&fm=webp`}
-				class="my-4"
-				alt={`image of ${plant.name}`}
-			/>
+		<div class="lg:sticky lg:top-4">
 			<QuickCard {...cardProps} />
 		</div>
 	</div>

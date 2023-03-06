@@ -58,7 +58,7 @@
 		aria-expanded={open}
 		aria-label="dropdown navigation menu"
 		on:click|stopPropagation={handleClick}
-		class="bg-white opacity-75 rounded-[50px] ml-3 drop-shadow-lg hover:opacity-100"
+		class="bg-white lg:opacity-75 rounded-[50px] ml-3 drop-shadow-lg hover:opacity-100"
 		id="plant-menu-button"
 	>
 		<Icon type="target" fill={iconColor} width="42px" height="42px" />
@@ -70,7 +70,7 @@
 			aria-label="menu"
 			aria-hidden={!open}
 			tabindex="0"
-			class="absolute right-0 z-10 top-[50px] hidden lg:flex flex-col align-bottom bg-white
+			class="absolute right-0 z-50 top-[50px] hidden lg:flex flex-col align-bottom bg-white
       drop-shadow-lg p-4 font-serif font-bold text-2xl rounded-xl opacity-95"
 			transition:slide={{ duration: 200 }}
 		>

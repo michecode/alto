@@ -39,8 +39,8 @@
 
 <svelte:window on:keydown={handleKeyboard} />
 
-<header class="mx-6 lg:mx-24 sticky top-0">
-	<div class="hidden lg:flex w-full pt-4 mb-4 bg-offwhite dark:bg-eerie dark:text-black">
+<header class="mx-6 lg:mx-24">
+	<div class="hidden lg:flex w-full pt-4 mb-4 dark:text-black">
 		<a href="/" class="dark:text-white mr-4">
 			<h1 class="font-serif font-black text-4xl hover:opacity-80">alto</h1>
 		</a>
@@ -64,11 +64,9 @@
 		<TargetMenu />
 	</div>
 	<!-- Mobile Sticky Version -->
-	<div
-		class="fixed top-0 left-0 flex lg:hidden w-full mt-4 px-4 bg-offwhite dark:bg-eerie dark:text-black"
-	>
+	<div class="fixed top-0 left-0 z-50 flex lg:hidden w-full mt-4 px-4 dark:text-black">
 		<button
-			class="flex items-center justify-between bg-white opacity-75 drop-shadow-lg rounded-3xl flex-grow"
+			class="flex items-center justify-between bg-white drop-shadow-lg rounded-3xl flex-grow"
 			on:click={openModal}
 		>
 			<h1 class="px-4 font-serif font-black text-md">Quick Search</h1>
@@ -76,7 +74,8 @@
 		<TargetMenu />
 	</div>
 </header>
-<main class="mx-6 lg:mx-24">
+<!-- margins are in page -->
+<main class="">
 	<slot />
 </main>
 
